@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Avatar powered by HeyGen with voice interaction">
+    <title>Interactive Avatar Assistant</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="css/animations.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Video Container -->
+        <div class="video-container" id="video-container">
+            <video 
+                id="idle-video" 
+                class="avatar-video active"
+                muted 
+                loop 
+                playsinline
+                preload="metadata"
+                poster="assets/fallback/avatar-poster.jpg"
+            >
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <video 
+                id="response-video" 
+                class="avatar-video"
+                playsinline
+                preload="none"
+            >
+                <source src="" type="video/mp4">
+            </video>
+            
+            <!-- Video loading overlay -->
+            <div class="video-overlay" id="video-overlay">
+                <div class="loading-spinner"></div>
+                <p>Loading avatar...</p>
+            </div>
+        </div>
+        
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <!-- Recording Button -->
+            <button 
+                id="record-button" 
+                class="record-button" 
+                aria-label="Press and hold to record your message"
+                disabled
+            >
+                <div class="mic-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/>
+                        <path d="M19 11v1a7 7 0 0 1-14 0v-1"/>
+                        <path d="M12 19v3"/>
+                        <path d="M8 22h8"/>
+                    </svg>
+                </div>
+                <span class="button-text">Hold to speak</span>
+            </button>
+            
+            <!-- Status Display -->
+            <div class="status-display" id="status-display">
+                <p class="status-message" id="status-message">Initializing...</p>
+                <div class="progress-bar" id="progress-bar" style="display: none;">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            
+            <!-- Usage Stats -->
+            <div class="usage-stats" id="usage-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Today's usage:</span>
+                    <span class="stat-value" id="usage-count">0/50</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Estimated cost:</span>
+                    <span class="stat-value" id="usage-cost">$0.00</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mode Switcher -->
+        <div class="mode-switcher">
+            <label class="mode-label">Response Mode:</label>
+            <div class="mode-buttons">
+                <button id="n8n-mode" class="mode-button active">N8N Mode</button>
+                <button id="interactive-mode" class="mode-button">Real-time Mode</button>
+            </div>
+            <p class="mode-description" id="mode-description">
+                N8N Mode: 1-3 minute responses with full ChatGPT + HeyGen workflow
+            </p>
+        </div>
+        
+        <!-- Settings Panel (Optional) -->
+        <div class="settings-panel" id="settings-panel" style="display: none;">
+            <h3>Settings</h3>
+            <div class="setting-item">
+                <label for="recording-time">Max recording time (seconds):</label>
+                <input type="range" id="recording-time" min="5" max="15" value="10">
+                <span id="recording-time-value">10</span>
+            </div>
+        </div>
+        
+        <!-- Error Messages -->
+        <div class="error-container" id="error-container" style="display: none;">
+            <div class="error-message">
+                <span class="error-text" id="error-text"></span>
+                <button class="error-close" id="error-close" aria-label="Close error message">×</button>
+            </div>
+        </div>
+        
+        <!-- Processing Overlay -->
+        <div class="processing-overlay" id="processing-overlay" style="display: none;">
+            <div class="processing-content">
+                <div class="processing-animation">
+                    <div class="wave wave-1"></div>
+                    <div class="wave wave-2"></div>
+                    <div class="wave wave-3"></div>
+                </div>
+                <h3 id="processing-title">Processing your request...</h3>
+                <p id="processing-subtitle">This usually takes about 45 seconds</p>
+                <div class="processing-steps">
+                    <div class="step" id="step-transcribing">
+                        <div class="step-icon">1</div>
+                        <span>Transcribing audio...</span>
+                    </div>
+                    <div class="step" id="step-thinking">
+                        <div class="step-icon">2</div>
+                        <span>AI thinking...</span>
+                    </div>
+                    <div class="step" id="step-generating">
+                        <div class="step-icon">3</div>
+                        <span>Generating response...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- HeyGen Interactive Avatar SDK -->
+    <script src="https://sdk.heygen.com/v1/streaming.js"></script>
+    
+    <!-- JavaScript Modules -->
+    <script src="config/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/cost-tracker.js"></script>
+    <script src="js/audio-recorder.js"></script>
+    <script src="js/video-manager.js"></script>
+    <script src="js/webhook-client.js"></script>
+    <script src="js/ui-controller.js"></script>
+    <script src="js/interactive-avatar.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
