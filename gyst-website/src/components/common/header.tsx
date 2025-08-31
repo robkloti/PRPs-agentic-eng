@@ -153,7 +153,7 @@ const Header: React.FC = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <MagneticButton href="/contact" variant="primary" size="sm">
+            <MagneticButton href="https://link.hebedigital.io/widget/bookings/strategy-session43" variant="primary" size="sm">
               {CTA_BUTTONS.primary}
             </MagneticButton>
           </div>
@@ -237,7 +237,7 @@ const Header: React.FC = () => {
                   exit="closed"
                 >
                   <MagneticButton 
-                    href="/contact" 
+                    href="https://link.hebedigital.io/widget/bookings/strategy-session43" 
                     variant="primary" 
                     className="w-full"
                     size="sm"

@@ -10,8 +10,8 @@ export default function Home() {
     <>
       <Hero />
       <TechCarouselSection />
-      <ClientLogos />
       <ServicesGrid />
+      <ClientLogos />
       <TechStack />
       <CaseStudies />
     </>

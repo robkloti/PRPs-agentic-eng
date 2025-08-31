@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'motion/react'
 import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react'
 import { GYST_BRAND, NAVIGATION_LINKS, SOCIAL_LINKS } from '@/lib/constants'
@@ -50,15 +51,16 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-1">
             <ScrollReveal>
               <div className="space-y-4">
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
-                    <span className="text-primary-foreground font-bold text-lg">G</span>
+                <Link href="/" className="flex items-center">
+                  <div className="relative w-16 h-16">
+                    <Image
+                      src="/images/branding/gyst-logo-removebg-preview.png"
+                      alt="GYST Logo"
+                      fill
+                      className="object-contain"
+                    />
                   </div>
-                  <div className="flex flex-col leading-tight">
-                    <span className="font-bold text-lg">{GYST_BRAND.name}</span>
-                    <span className="text-xs text-background/70">{GYST_BRAND.tagline}</span>
-                  </div>
-                </div>
+                </Link>
                 <p className="text-background/70 text-sm leading-relaxed">
                   {GYST_BRAND.description}
                 </p>

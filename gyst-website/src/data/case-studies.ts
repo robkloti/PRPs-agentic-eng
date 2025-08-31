@@ -33,7 +33,7 @@ export const caseStudies: CaseStudy[] = [
     services: ['RAG Solutions', 'Lead Generation AI', 'AI Chatbots', 'Voice Marketing'],
     results: [
       {
-        metric: 'Qualified Leads',
+        metric: 'Qualified Lead Flow',
         value: '300%',
         description: 'Increase in qualified leads through intelligent screening'
       },

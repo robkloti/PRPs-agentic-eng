@@ -366,7 +366,7 @@ export default function ContactPage() {
                     <p className="text-muted-foreground mb-4">
                       Schedule a call at your convenience
                     </p>
-                    <MagneticButton variant="outline" size="lg">
+                    <MagneticButton href="https://link.hebedigital.io/widget/bookings/strategy-session43" variant="outline" size="lg">
                       Book Calendar Slot
                     </MagneticButton>
                   </CardContent>

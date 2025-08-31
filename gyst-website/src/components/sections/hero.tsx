@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
             variants={motionVariants.heroTitle}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
           >
-            <MagneticButton href="/contact" variant="primary" size="lg" className="group">
+            <MagneticButton href="https://link.hebedigital.io/widget/bookings/strategy-session43" variant="primary" size="lg" className="group">
               {HERO_CONTENT.primaryCTA}
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </MagneticButton>

@@ -36,10 +36,10 @@ export const services: Service[] = [
     icon: 'strategy',
     category: 'strategy',
     pricing: {
-      starting: '$15K',
-      typical: '$25K-50K'
+      starting: '',
+      typical: ''
     },
-    deliveryTime: '4-6 weeks',
+    deliveryTime: '',
     industries: ['Finance', 'Healthcare', 'Manufacturing', 'Insurance', 'Government']
   },
   {
@@ -63,10 +63,10 @@ export const services: Service[] = [
     icon: 'rag',
     category: 'implementation',
     pricing: {
-      starting: '$35K',
-      typical: '$75K-150K'
+      starting: '',
+      typical: ''
     },
-    deliveryTime: '8-12 weeks',
+    deliveryTime: '',
     industries: ['Legal', 'Healthcare', 'Finance', 'Manufacturing', 'Government']
   },
   {
@@ -90,10 +90,10 @@ export const services: Service[] = [
     icon: 'chatbot',
     category: 'implementation',
     pricing: {
-      starting: '$25K',
-      typical: '$50K-100K'
+      starting: '',
+      typical: ''
     },
-    deliveryTime: '6-10 weeks',
+    deliveryTime: '',
     industries: ['Retail', 'SaaS', 'Healthcare', 'Finance', 'Real Estate']
   },
   {
@@ -117,10 +117,10 @@ export const services: Service[] = [
     icon: 'leadgen',
     category: 'optimization',
     pricing: {
-      starting: '$20K',
-      typical: '$40K-80K'
+      starting: '',
+      typical: ''
     },
-    deliveryTime: '4-8 weeks',
+    deliveryTime: '',
     industries: ['B2B SaaS', 'Real Estate', 'Insurance', 'Marketing', 'Crypto']
   },
   {
@@ -144,10 +144,10 @@ export const services: Service[] = [
     icon: 'content',
     category: 'implementation',
     pricing: {
-      starting: '$15K',
-      typical: '$30K-60K'
+      starting: '',
+      typical: ''
     },
-    deliveryTime: '3-6 weeks',
+    deliveryTime: '',
     industries: ['Marketing', 'Healthcare', 'Finance', 'Legal', 'E-commerce']
   },
   {
@@ -171,7 +171,7 @@ export const services: Service[] = [
     icon: 'implementation',
     category: 'implementation',
     pricing: {
-      starting: '$50K',
+      starting: '$20K',
       typical: '$100K-300K'
     },
     deliveryTime: '12-20 weeks',

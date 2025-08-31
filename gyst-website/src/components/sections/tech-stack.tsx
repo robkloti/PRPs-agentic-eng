@@ -175,7 +175,7 @@ const TechStack: React.FC = () => {
             Want to see how we can integrate these technologies for your business?
           </p>
           <motion.a
-            href="/admin/assets"
+            href="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors font-medium"
             whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
             whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}

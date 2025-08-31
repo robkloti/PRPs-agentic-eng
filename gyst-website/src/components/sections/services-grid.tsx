@@ -46,10 +46,12 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, i
           >
             {service.category.charAt(0).toUpperCase() + service.category.slice(1)}
           </Badge>
-          <div className="text-right text-sm text-muted-foreground">
-            <div>{service.deliveryTime}</div>
-            <div className="font-semibold text-foreground">{service.pricing.starting}+</div>
-          </div>
+          {(service.deliveryTime || service.pricing.starting) && (
+            <div className="text-right text-sm text-muted-foreground">
+              {service.deliveryTime && <div>{service.deliveryTime}</div>}
+              {service.pricing.starting && <div className="font-semibold text-foreground">{service.pricing.starting}+</div>}
+            </div>
+          )}
         </div>
 
         {/* Icon */}
@@ -216,7 +218,7 @@ const ServicesGrid: React.FC = () => {
               We&rsquo;ll create a custom roadmap tailored to your business needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <MagneticButton href="/contact" variant="primary" size="lg">
+              <MagneticButton href="https://link.hebedigital.io/widget/bookings/strategy-session43" variant="primary" size="lg">
                 Schedule Consultation
                 <ArrowRight className="ml-2 w-4 h-4" />
               </MagneticButton>

@@ -76,21 +76,32 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy, index, feature
             Results:
           </h4>
           <div className="grid grid-cols-2 gap-4">
-            {caseStudy.results.slice(0, 4).map((result, resultIndex) => (
+            {caseStudy.results.slice(0, 4).map((result, resultIndex) => {
+              const numericValue = parseFloat(result.value.replace(/[^\d.]/g, '')) || 0;
+              const suffixValue = result.value.replace(/[\d.]/g, '');
+              
+              console.log('Counter Debug:', { original: result.value, numeric: numericValue, suffix: suffixValue });
+              
+              return (
               <div key={resultIndex} className="text-center p-3 bg-muted/50 rounded-lg">
                 <div className="text-2xl font-bold text-primary mb-1">
-                  <CounterAnimation
-                    value={parseFloat(result.value.replace(/[^\d.]/g, ''))}
-                    suffix={result.value.replace(/[\d.]/g, '')}
-                    delay={index * 0.2 + resultIndex * 0.1}
-                    duration={2}
-                  />
+                  {numericValue > 0 ? (
+                    <CounterAnimation
+                      value={numericValue}
+                      suffix={suffixValue}
+                      delay={0}
+                      duration={3}
+                    />
+                  ) : (
+                    <span>0{suffixValue}</span>
+                  )}
                 </div>
                 <div className="text-xs text-muted-foreground">
                   {result.description.split(' ').slice(0, 3).join(' ')}...
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

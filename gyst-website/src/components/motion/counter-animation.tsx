@@ -31,13 +31,57 @@ const CounterAnimation: React.FC<CounterAnimationProps> = ({
   const [hasAnimated, setHasAnimated] = useState(false)
   const shouldReduceMotion = useReducedMotion()
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   useEffect(() => {
+    console.log('Counter Animation Effect:', { isInView, hasAnimated, value, shouldReduceMotion })
+    
+    // Force animation after 1 second for testing
+    const forceTimer = setTimeout(() => {
+      if (!hasAnimated) {
+        console.log('Force starting counter animation for value:', value)
+        setHasAnimated(true)
+        
+        if (shouldReduceMotion) {
+          console.log('Reduced motion: setting value immediately')
+          setDisplayValue(value)
+          return
+        }
+
+        let startTime: number
+        let animationFrame: number
+
+        const animate = (timestamp: number) => {
+          if (!startTime) startTime = timestamp
+          const elapsed = timestamp - startTime
+          const progress = Math.min(elapsed / (duration * 1000), 1)
+
+          const easeOut = 1 - Math.pow(1 - progress, 3)
+          const currentValue = easeOut * value
+          setDisplayValue(currentValue)
+
+          if (progress < 1) {
+            animationFrame = requestAnimationFrame(animate)
+          }
+        }
+
+        animationFrame = requestAnimationFrame(animate)
+        
+        return () => {
+          if (animationFrame) {
+            cancelAnimationFrame(animationFrame)
+          }
+        }
+      }
+    }, 1000)
+    
     if (isInView && !hasAnimated) {
+      console.log('Starting counter animation for value:', value)
+      clearTimeout(forceTimer)
       setHasAnimated(true)
 
       if (shouldReduceMotion) {
+        console.log('Reduced motion: setting value immediately')
         setDisplayValue(value)
         return
       }
