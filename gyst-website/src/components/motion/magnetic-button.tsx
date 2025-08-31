@@ -4,6 +4,7 @@ import React, { useState, MouseEvent } from 'react'
 import Link from 'next/link'
 import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/use-reduced-motion'
+import { useAnalytics } from '@/lib/analytics'
 import { cn } from '@/lib/utils'
 
 interface MagneticButtonProps {
@@ -31,6 +32,20 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const shouldReduceMotion = useReducedMotion()
+  const { trackCTAClick } = useAnalytics()
+
+  const handleClick = () => {
+    // Track CTA click for analytics
+    const buttonText = typeof children === 'string' ? children : 'Button'
+    const location = typeof window !== 'undefined' ? window.location.pathname : ''
+    
+    trackCTAClick(buttonText, location, href)
+    
+    // Call original onClick if provided
+    if (onClick) {
+      onClick()
+    }
+  }
 
   const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
     if (disabled || shouldReduceMotion) return
@@ -122,7 +137,7 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={onClick}
+      onClick={handleClick}
       disabled={disabled}
       type={href ? undefined : type}
       {...props}

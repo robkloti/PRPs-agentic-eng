@@ -74,6 +74,8 @@ export default function BlogPage() {
                           alt={insight.title}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          priority={index < 2}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                         />
                         <div className="absolute top-4 left-4">
                           <Badge className={`${insight.category.color}/10 text-${insight.category.color.replace('bg-', '')} border-${insight.category.color.replace('bg-', '')}/20`}>
@@ -180,6 +182,8 @@ export default function BlogPage() {
                         alt={insight.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       <div className="absolute top-4 left-4">
                         <Badge className={`${insight.category.color}/10 text-${insight.category.color.replace('bg-', '')} border-${insight.category.color.replace('bg-', '')}/20`}>

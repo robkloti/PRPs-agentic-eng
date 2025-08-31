@@ -4,6 +4,7 @@ import "./globals.css";
 import { SEO_CONSTANTS } from "@/lib/constants";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
+import { PageErrorBoundary } from "@/components/error-boundary";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,9 +62,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <PageErrorBoundary>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </PageErrorBoundary>
       </body>
     </html>
   );

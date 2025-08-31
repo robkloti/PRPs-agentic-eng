@@ -80,8 +80,6 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy, index, feature
               const numericValue = parseFloat(result.value.replace(/[^\d.]/g, '')) || 0;
               const suffixValue = result.value.replace(/[\d.]/g, '');
               
-              console.log('Counter Debug:', { original: result.value, numeric: numericValue, suffix: suffixValue });
-              
               return (
               <div key={resultIndex} className="text-center p-3 bg-muted/50 rounded-lg">
                 <div className="text-2xl font-bold text-primary mb-1">
