@@ -56,56 +56,35 @@ const Hero: React.FC = () => {
           animate="visible"
           className="space-y-8"
         >
-          {/* Badge/Announcement */}
-          <motion.div
-            variants={motionVariants.heroTitle}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20"
-          >
-            <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium">Premium AI Agency</span>
-          </motion.div>
 
           {/* Main headline with staggered animation */}
           <div className="space-y-4">
             <motion.h1
-              variants={staggeredTextVariants}
-              initial="hidden"
-              animate="visible"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight"
+              variants={motionVariants.heroTitle}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-primary gradient-text-primary"
+              style={{
+                background: 'linear-gradient(135deg, oklch(0.55 0.22 264), oklch(0.65 0.25 320))',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
             >
-              <div className="flex flex-wrap justify-center gap-x-4 mb-2">
-                {headlineWords.map((word, index) => (
-                  <motion.span
-                    key={`headline-${index}`}
-                    variants={wordVariants}
-                    className="inline-block"
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </div>
-              
-              <div className="flex flex-wrap justify-center gap-x-4">
-                {highlightWords.map((word, index) => (
-                  <motion.span
-                    key={`highlight-${index}`}
-                    variants={wordVariants}
-                    className="inline-block text-primary"
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </div>
+              {HERO_CONTENT.headline}
             </motion.h1>
           </div>
 
           {/* Subheading */}
-          <motion.p
+          <motion.div
             variants={motionVariants.heroTitle}
-            className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed space-y-6"
           >
-            {HERO_CONTENT.subheading}
-          </motion.p>
+            <p>
+              At GYST, we don't build toy experiments — we install AI that slashes operating costs, spins up new revenue streams, and makes your team sharper, faster, and impossible to ignore.
+            </p>
+            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground">
+              Your AI should pay for itself.
+            </p>
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div

@@ -1,0 +1,25 @@
+<svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rcGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Wallet icon -->
+  <rect x="20" y="22" width="25" height="18" rx="3" fill="url(#rcGradient)"/>
+  <rect x="22" y="24" width="21" height="14" rx="2" fill="white" opacity="0.9"/>
+  <circle cx="38" cy="31" r="2" fill="url(#rcGradient)"/>
+  
+  <!-- Crypto symbols -->
+  <text x="50" y="28" font-family="Arial, sans-serif" font-size="8" fill="url(#rcGradient)">₿</text>
+  <text x="50" y="38" font-family="Arial, sans-serif" font-size="6" fill="url(#rcGradient)">Ξ</text>
+  
+  <!-- Text -->
+  <text x="65" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="url(#rcGradient)">
+    RC
+  </text>
+  <text x="65" y="42" font-family="Arial, sans-serif" font-size="12" fill="#666">
+    WALLET
+  </text>
+</svg>

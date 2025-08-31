@@ -44,38 +44,44 @@
 }
 
 :root {
-  --radius: 0rem; /* Sharp, professional edges per GYST design */
-  --background: oklch(1.0000 0 0); /* Pure white */
-  --foreground: oklch(0.1344 0 0); /* Near black */
+  --radius: 8px; /* ModusCreate-style rounded corners */
+  --background: oklch(0.99 0 0); /* Clean off-white */
+  --foreground: oklch(0.13 0.02 264); /* Deep blue-black */
   --card: oklch(1.0000 0 0);
-  --card-foreground: oklch(0.1344 0 0);
+  --card-foreground: oklch(0.13 0.02 264);
   --popover: oklch(1.0000 0 0);
-  --popover-foreground: oklch(0.1344 0 0);
-  --primary: oklch(0.9680 0.2110 109.7692); /* GYST signature lime green */
-  --primary-foreground: oklch(0.1344 0 0);
-  --secondary: oklch(0.9054 0.1546 194.7689); /* Professional blue */
-  --secondary-foreground: oklch(0.1344 0 0);
-  --muted: oklch(0.9702 0 0); /* Light gray */
-  --muted-foreground: oklch(0.5103 0 0);
-  --accent: oklch(0.7017 0.3225 328.3634); /* Magenta accent */
-  --accent-foreground: oklch(1.0000 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.8761 0 0);
-  --input: oklch(0.8761 0 0);
-  --ring: oklch(0.8953 0.1952 109.7692); /* Primary ring color */
-  --chart-1: oklch(0.9680 0.2110 109.7692); /* Primary lime */
-  --chart-2: oklch(0.9054 0.1546 194.7689); /* Secondary blue */
-  --chart-3: oklch(0.7017 0.3225 328.3634); /* Accent magenta */
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.1344 0 0);
-  --sidebar-primary: oklch(0.9680 0.2110 109.7692);
-  --sidebar-primary-foreground: oklch(0.1344 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.1344 0 0);
-  --sidebar-border: oklch(0.8761 0 0);
-  --sidebar-ring: oklch(0.8953 0.1952 109.7692);
+  --popover-foreground: oklch(0.13 0.02 264);
+  --primary: oklch(0.55 0.22 264); /* ModusCreate deep purple-blue */
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.45 0.18 235); /* Elegant dark blue */
+  --secondary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.96 0.01 264); /* Subtle purple-tinted background */
+  --muted-foreground: oklch(0.45 0.05 264);
+  --accent: oklch(0.65 0.25 320); /* Sophisticated purple accent */
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.65 0.22 15);
+  --border: oklch(0.90 0.02 264);
+  --input: oklch(0.96 0.01 264);
+  --ring: oklch(0.55 0.22 264);
+  --chart-1: oklch(0.55 0.22 264);
+  --chart-2: oklch(0.45 0.18 235);
+  --chart-3: oklch(0.65 0.25 320);
+  --chart-4: oklch(0.60 0.20 200);
+  --chart-5: oklch(0.70 0.18 280);
+  --sidebar: oklch(0.98 0.01 264);
+  --sidebar-foreground: oklch(0.13 0.02 264);
+  --sidebar-primary: oklch(0.55 0.22 264);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.96 0.01 264);
+  --sidebar-accent-foreground: oklch(0.13 0.02 264);
+  --sidebar-border: oklch(0.90 0.02 264);
+  --sidebar-ring: oklch(0.55 0.22 264);
+  
+  /* Gradient Variables for Text Highlights */
+  --gradient-primary: linear-gradient(135deg, oklch(0.55 0.22 264), oklch(0.65 0.25 320));
+  --gradient-secondary: linear-gradient(135deg, oklch(0.45 0.18 235), oklch(0.55 0.22 264));
+  --gradient-accent: linear-gradient(135deg, oklch(0.65 0.25 320), oklch(0.70 0.18 280));
+  --gradient-rainbow: linear-gradient(135deg, oklch(0.55 0.22 264), oklch(0.65 0.25 320), oklch(0.70 0.18 280), oklch(0.60 0.20 200));
 }
 
 .dark {
@@ -156,6 +162,62 @@
 @keyframes pulseSoft {
   0%, 100% { opacity: 0.1; }
   50% { opacity: 0.3; }
+}
+
+/* Gradient Text Classes */
+.gradient-text-primary {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  background-size: 100%;
+  display: inline-block;
+}
+
+.gradient-text-secondary {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-accent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-rainbow {
+  background: var(--gradient-rainbow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient Background Utilities */
+.bg-gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.bg-gradient-secondary {
+  background: var(--gradient-secondary);
+}
+
+.bg-gradient-accent {
+  background: var(--gradient-accent);
+}
+
+/* Enhanced Card Shadows */
+.shadow-elegant {
+  box-shadow: 0 4px 24px 0 rgba(67, 56, 202, 0.08), 
+              0 1px 4px 0 rgba(67, 56, 202, 0.04);
+}
+
+.shadow-elegant-hover {
+  box-shadow: 0 8px 32px 0 rgba(67, 56, 202, 0.12), 
+              0 4px 8px 0 rgba(67, 56, 202, 0.06);
 }
 
 /* Custom cursor styles */

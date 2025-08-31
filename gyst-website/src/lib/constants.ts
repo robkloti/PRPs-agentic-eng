@@ -28,9 +28,9 @@ export const CTA_BUTTONS = {
 } as const
 
 export const HERO_CONTENT = {
-  headline: "Turn your AI investment",
-  highlightedText: "into scalable ROI",
-  subheading: "Most leaders talk about AI. Some run experiments. But only a few leaders turn AI into real business results. GYST helps your organization adopt AI that cuts operating costs, creates revenue streams, and builds innovation muscle.",
+  headline: "Compound your AI investment",
+  highlightedText: "",
+  subheading: "At GYST, we don't build toy experiments — we install AI that slashes operating costs, spins up new revenue streams, and makes your team sharper, faster, and impossible to ignore.\n\nYour AI should pay for itself.",
   primaryCTA: CTA_BUTTONS.primary,
   secondaryCTA: CTA_BUTTONS.secondary
 } as const

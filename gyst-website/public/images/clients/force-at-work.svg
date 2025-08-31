@@ -1,0 +1,27 @@
+<svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="forceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a24;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Lightning bolt -->
+  <path d="M25 15L35 30L30 30L38 45L28 30L33 30L25 15Z" fill="url(#forceGradient)"/>
+  
+  <!-- Circular elements -->
+  <circle cx="45" cy="20" r="3" fill="url(#forceGradient)" opacity="0.7"/>
+  <circle cx="52" cy="35" r="2" fill="url(#forceGradient)" opacity="0.5"/>
+  <circle cx="48" cy="42" r="1.5" fill="url(#forceGradient)" opacity="0.3"/>
+  
+  <!-- Text -->
+  <text x="65" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#forceGradient)">
+    FORCE
+  </text>
+  <text x="65" y="32" font-family="Arial, sans-serif" font-size="10" fill="#999">
+    AT
+  </text>
+  <text x="65" y="44" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#forceGradient)">
+    WORK
+  </text>
+</svg>

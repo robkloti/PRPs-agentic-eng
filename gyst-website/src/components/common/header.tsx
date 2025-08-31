@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'motion/react'
 import { Menu, X } from 'lucide-react'
@@ -108,13 +109,15 @@ const Header: React.FC = () => {
             whileHover={{ scale: shouldReduceMotion ? 1 : 1.05 }}
             whileTap={{ scale: shouldReduceMotion ? 1 : 0.95 }}
           >
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">G</span>
-              </div>
-              <div className="flex flex-col leading-tight">
-                <span className="font-bold text-lg text-foreground">{GYST_BRAND.name}</span>
-                <span className="text-xs text-muted-foreground -mt-1">{GYST_BRAND.tagline}</span>
+            <Link href="/" className="flex items-center">
+              <div className="relative w-16 h-16">
+                <Image
+                  src="/images/branding/gyst-logo-removebg-preview.png"
+                  alt="GYST Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
             </Link>
           </motion.div>

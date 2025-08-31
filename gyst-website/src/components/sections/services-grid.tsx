@@ -28,7 +28,7 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, i
   return (
     <ScrollReveal delay={index * 0.1} className="h-full">
       <motion.div
-        className="relative h-full p-8 bg-card border border-border shadow-sm transition-all duration-300 group cursor-pointer"
+        className="relative h-full p-8 bg-card border border-border shadow-elegant hover:shadow-elegant-hover transition-all duration-300 group cursor-pointer rounded-lg"
         variants={motionVariants.serviceCard}
         whileHover={shouldReduceMotion ? {} : "hover"}
         layout
@@ -179,7 +179,7 @@ const ServicesGrid: React.FC = () => {
             >
               Transform Your Business
               <br />
-              <span className="text-primary">with Custom AI Solutions</span>
+              <span className="gradient-text-primary">with Custom AI Solutions</span>
             </motion.h2>
 
             <motion.p

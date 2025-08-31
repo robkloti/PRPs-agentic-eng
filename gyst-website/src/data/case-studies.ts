@@ -58,7 +58,7 @@ export const caseStudies: CaseStudy[] = [
     teamSize: '4 specialists',
     featured: true,
     image: '/images/case-studies/galaxy-housing-dashboard.jpg',
-    logo: '/images/clients/galaxy-housing-logo.svg',
+    logo: '/images/clients/galaxy-housing.svg',
     testimonial: {
       quote: "GYST transformed our entire lead management process. We're now handling 3x more qualified leads with the same team size.",
       author: "Sarah Mitchell",
@@ -99,7 +99,7 @@ export const caseStudies: CaseStudy[] = [
     teamSize: '5 specialists',
     featured: true,
     image: '/images/case-studies/force-at-work-avatars.jpg',
-    logo: '/images/clients/force-at-work-logo.svg',
+    logo: '/images/clients/force-at-work.svg',
     testimonial: {
       quote: "The AI avatars perfectly captured Japanese business culture nuances. Our clients can't tell the difference from human-created content.",
       author: "Hiroshi Tanaka",
@@ -140,7 +140,7 @@ export const caseStudies: CaseStudy[] = [
     teamSize: '6 specialists',
     featured: true,
     image: '/images/case-studies/rc-wallet-analytics.jpg',
-    logo: '/images/clients/rc-wallet-logo.svg',
+    logo: '/images/clients/rc-wallet.svg',
     testimonial: {
       quote: "GYST's on-chain analysis identified prospects we never would have found manually. The ROI has been exceptional.",
       author: "David Chen",

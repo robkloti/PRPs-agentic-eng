@@ -25,8 +25,8 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy, index, feature
     <ScrollReveal delay={index * 0.2} className="h-full">
       <motion.div
         className={cn(
-          'relative p-8 bg-card border border-border shadow-sm transition-all duration-300 group cursor-pointer h-full flex flex-col',
-          featured && 'border-primary/20 shadow-lg'
+          'relative p-8 bg-card border border-border shadow-elegant hover:shadow-elegant-hover transition-all duration-300 group cursor-pointer h-full flex flex-col rounded-lg',
+          featured && 'border-primary/20 shadow-elegant-hover'
         )}
         variants={motionVariants.serviceCard}
         whileHover={shouldReduceMotion ? {} : "hover"}
@@ -178,7 +178,7 @@ const CaseStudies: React.FC = () => {
             >
               Real Results,
               <br />
-              <span className="text-secondary">Measurable Impact</span>
+              <span className="gradient-text-accent">Measurable Impact</span>
             </motion.h2>
 
             <motion.p
