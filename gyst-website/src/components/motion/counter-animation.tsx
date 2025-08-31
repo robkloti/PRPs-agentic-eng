@@ -31,10 +31,22 @@ const CounterAnimation: React.FC<CounterAnimationProps> = ({
   const [hasAnimated, setHasAnimated] = useState(false)
   const shouldReduceMotion = useReducedMotion()
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const isInView = useInView(ref, { once: true, amount: 0.1, margin: "0px 0px -100px 0px" })
 
   useEffect(() => {
+    // Force animation after 2 seconds if intersection observer doesn't work
+    const forceTimer = setTimeout(() => {
+      if (!hasAnimated) {
+        startAnimation()
+      }
+    }, 2000)
+    
     if (isInView && !hasAnimated) {
+      clearTimeout(forceTimer)
+      startAnimation()
+    }
+
+    function startAnimation() {
       setHasAnimated(true)
 
       if (shouldReduceMotion) {
@@ -72,6 +84,10 @@ const CounterAnimation: React.FC<CounterAnimationProps> = ({
         }
         clearTimeout(timeoutId)
       }
+    }
+
+    return () => {
+      clearTimeout(forceTimer)
     }
   }, [isInView, hasAnimated, value, duration, shouldReduceMotion, delay])
 

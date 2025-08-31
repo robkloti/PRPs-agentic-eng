@@ -261,20 +261,6 @@ export function useAnalytics() {
   }
 }
 
-// Higher-order component for automatic page tracking
-export function withPageTracking<P extends object>(Component: React.ComponentType<P>) {
-  const TrackedComponent = (props: P) => {
-    React.useEffect(() => {
-      analytics.trackPageView(window.location.href)
-    }, [])
-
-    return <Component {...props} />
-  }
-
-  TrackedComponent.displayName = `withPageTracking(${Component.displayName || Component.name})`
-  return TrackedComponent
-}
-
 // Initialize analytics when this module is imported
 if (typeof window !== 'undefined') {
   analytics.init()
