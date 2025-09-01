@@ -12,6 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://gyst-ai.vercel.app' : 'http://localhost:3003'),
   title: SEO_CONSTANTS.defaultTitle,
   description: SEO_CONSTANTS.defaultDescription,
   keywords: SEO_CONSTANTS.keywords.join(', '),
