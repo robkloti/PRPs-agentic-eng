@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd gyst-website && npm run build",
+  "outputDirectory": "gyst-website/.next",
+  "installCommand": "cd gyst-website && npm install",
+  "framework": "nextjs"
+}
