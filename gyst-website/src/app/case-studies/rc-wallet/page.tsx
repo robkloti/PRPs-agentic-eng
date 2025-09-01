@@ -192,7 +192,7 @@ export default function RCWalletCaseStudy() {
                 <div className="bg-primary/5 rounded-lg p-6 border border-primary/20">
                   <h4 className="font-semibold text-foreground mb-4">Whale Detection Criteria</h4>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Portfolio value > $1M across all wallets</li>
+                    <li>• Portfolio value &gt; $1M across all wallets</li>
                     <li>• Active trading in last 30 days</li>
                     <li>• DeFi protocol usage patterns</li>
                     <li>• Yield farming and liquidity provision</li>
