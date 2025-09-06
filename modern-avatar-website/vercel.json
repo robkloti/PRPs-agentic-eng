@@ -1,6 +1,12 @@
 {
-  "buildCommand": "npm run build:simple",
-  "outputDirectory": "dist",
-  "framework": "vite",
-  "installCommand": "npm install"
+  "version": 2,
+  "buildCommand": "cp -r public/* . && echo 'Files copied for static deployment'",
+  "outputDirectory": ".",
+  "installCommand": "npm install",
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/index.html"
+    }
+  ]
 }
