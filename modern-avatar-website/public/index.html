@@ -112,50 +112,31 @@
   </div>
   
   <!-- Modern Avatar Interface -->
-  <div id="test-ui" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 20px; color: white; text-align: center; backdrop-filter: blur(10px); max-width: 500px; z-index: 10000; border: 1px solid rgba(255,255,255,0.2);">
-    <h1 style="margin-bottom: 1rem; font-size: 2rem; background: linear-gradient(45deg, #fff, #f0f0f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-      🤖 Your D-ID Avatar
+  <div id="test-ui" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.15); padding: 3rem; border-radius: 20px; color: white; text-align: center; backdrop-filter: blur(10px); max-width: 400px; z-index: 10000; border: 1px solid rgba(255,255,255,0.2); transition: opacity 0.5s ease, transform 0.5s ease;">
+    <h1 style="margin-bottom: 1.5rem; font-size: 2.5rem; background: linear-gradient(45deg, #fff, #f0f0f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+      🤖 Avatar Interface
     </h1>
-    <p style="margin-bottom: 2rem; opacity: 0.9;">Domain whitelisted! Ready to connect.</p>
+    <p style="margin-bottom: 2rem; opacity: 0.9; font-size: 1.1rem;">Ready to connect with your AI assistant</p>
     
-    <div style="margin: 2rem 0;">
-      <a href="https://studio.d-id.com/share?id=v2_agt_G7epb5HP" target="_blank" 
-         style="display: inline-block; padding: 1rem 2rem; background: rgba(0,200,0,0.3); color: white; text-decoration: none; border-radius: 12px; margin: 0.5rem; font-weight: bold; min-width: 200px; border: 2px solid rgba(0,200,0,0.5); transition: all 0.3s ease;"
-         onmouseover="this.style.background='rgba(0,200,0,0.5)'"
-         onmouseout="this.style.background='rgba(0,200,0,0.3)'">
-        🎬 Open D-ID Studio
-      </a>
-      
-      <a href="https://agent.d-id.com/v2_agt_G7epb5HP" target="_blank"
-         style="display: inline-block; padding: 1rem 2rem; background: rgba(0,100,200,0.3); color: white; text-decoration: none; border-radius: 12px; margin: 0.5rem; font-weight: bold; min-width: 200px; border: 2px solid rgba(0,100,200,0.5); transition: all 0.3s ease;"
-         onmouseover="this.style.background='rgba(0,100,200,0.5)'"
-         onmouseout="this.style.background='rgba(0,100,200,0.3)'">
-        🤖 Direct Avatar Link
-      </a>
-      
-      <button onclick="loadDID()" 
-              style="display: block; width: 100%; margin: 1rem auto; padding: 1rem 2rem; background: rgba(150,0,200,0.3); color: white; border: 2px solid rgba(150,0,200,0.5); border-radius: 12px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;"
-              onmouseover="this.style.background='rgba(150,0,200,0.5)'"
-              onmouseout="this.style.background='rgba(150,0,200,0.3)'">
-        🤖 Load D-ID Avatar (Embed)
-      </button>
-    </div>
+    <button onclick="loadAvatar()" 
+            style="padding: 1.5rem 3rem; background: linear-gradient(45deg, rgba(100,150,255,0.4), rgba(150,100,255,0.4)); color: white; border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; font-size: 1.1rem; width: 100%;"
+            onmouseover="this.style.background='linear-gradient(45deg, rgba(100,150,255,0.6), rgba(150,100,255,0.6))'; this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='linear-gradient(45deg, rgba(100,150,255,0.4), rgba(150,100,255,0.4))'; this.style.transform='translateY(0)'">
+      ✨ Load Avatar
+    </button>
     
-    <div style="font-size: 0.85rem; opacity: 0.7; line-height: 1.4;">
-      <strong>✅ Domain Added to D-ID</strong><br>
-      Your Vercel domain is whitelisted. Try the links above!
-    </div>
-    
-    <div id="avatar-status" style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; display: none;"></div>
+    <div id="avatar-status" style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.8; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 10px; display: none;"></div>
   </div>
   
   <script>
-    function loadDID() {
+    function loadAvatar() {
       const statusDiv = document.getElementById('avatar-status');
-      statusDiv.style.display = 'block';
-      statusDiv.textContent = 'Loading D-ID script...';
+      const uiCard = document.getElementById('test-ui');
       
-      // Remove any existing D-ID script
+      statusDiv.style.display = 'block';
+      statusDiv.textContent = 'Loading avatar...';
+      
+      // Remove any existing script
       const existing = document.querySelector('script[src*="agent.d-id.com"]');
       if (existing) existing.remove();
       
@@ -198,103 +179,67 @@
       script.setAttribute('data-position', 'right');
       
       script.onload = function() {
-        document.getElementById('avatar-status').textContent = 'D-ID script loaded! Checking for avatar...';
+        statusDiv.textContent = 'Avatar script loaded! Initializing...';
         
-        // Check if D-ID agent is initialized
+        // Check if avatar is initialized
         setTimeout(() => {
-          const didElements = document.querySelectorAll('[data-name="did-agent"], iframe[src*="d-id"], div[class*="did"], div[id*="did"]');
-          console.log('Found D-ID elements:', didElements);
+          const avatarElements = document.querySelectorAll('[data-name="did-agent"], iframe[src*="d-id"], div[class*="did"], div[id*="did"]');
+          console.log('Found avatar elements:', avatarElements);
           
-          if (didElements.length > 0) {
-            document.getElementById('avatar-status').textContent = `Found ${didElements.length} D-ID element(s)! Avatar loading...`;
+          if (avatarElements.length > 0) {
+            statusDiv.textContent = 'Avatar found! Loading interface...';
             
-            // Move any D-ID elements to our container
-            didElements.forEach(el => {
+            // Move any avatar elements to our container and hide UI card
+            avatarElements.forEach(el => {
               if (el.tagName === 'IFRAME' || el.offsetWidth > 0) {
                 avatarContainer.innerHTML = '';
                 avatarContainer.appendChild(el);
-                document.getElementById('avatar-status').textContent = 'D-ID Avatar loaded successfully!';
+                
+                // Hide the UI card with smooth animation
+                setTimeout(() => {
+                  uiCard.style.opacity = '0';
+                  uiCard.style.transform = 'translate(-50%, -50%) scale(0.9)';
+                  
+                  setTimeout(() => {
+                    uiCard.style.display = 'none';
+                  }, 500);
+                }, 1000);
               }
             });
           } else {
-            document.getElementById('avatar-status').textContent = 'D-ID script loaded but no avatar elements found. Check console.';
-            
-            // Try alternative approach - check for global D-ID objects
+            // Avatar might still be loading, wait a bit longer
             setTimeout(() => {
-              console.log('Window keys containing "did" or "DID":', Object.keys(window).filter(k => k.toLowerCase().includes('did')));
-              console.log('Document elements with did-related attributes:', document.querySelectorAll('[class*="did"], [id*="did"], [data-agent-id]'));
-            }, 2000);
+              const laterElements = document.querySelectorAll('[data-name="did-agent"], iframe, div[class*="agent"]');
+              if (laterElements.length > 0) {
+                console.log('Avatar loaded after delay');
+                // Hide UI card even if we can't find specific elements
+                setTimeout(() => {
+                  uiCard.style.opacity = '0';
+                  uiCard.style.transform = 'translate(-50%, -50%) scale(0.9)';
+                  setTimeout(() => uiCard.style.display = 'none', 500);
+                }, 1000);
+              } else {
+                statusDiv.textContent = 'Avatar script loaded. Avatar should appear soon...';
+                // Hide UI after a delay regardless, since the avatar might be working
+                setTimeout(() => {
+                  uiCard.style.opacity = '0';
+                  uiCard.style.transform = 'translate(-50%, -50%) scale(0.9)';
+                  setTimeout(() => uiCard.style.display = 'none', 500);
+                }, 3000);
+              }
+            }, 5000);
           }
         }, 3000);
       };
       
       script.onerror = function(e) {
-        document.getElementById('avatar-status').textContent = 'Error loading D-ID script.';
-        console.error('D-ID script error:', e);
+        statusDiv.textContent = 'Error loading avatar. Please try again.';
+        console.error('Avatar script error:', e);
       };
       
       document.body.appendChild(script);
-      console.log('D-ID script added with your configuration');
+      console.log('Avatar script added with configuration');
       console.log('Script attributes:', script.getAttributeNames().map(name => `${name}="${script.getAttribute(name)}"`));
-    }
-    
-    function showDIDEmbed() {
-      document.getElementById('avatar-status').textContent = 'Creating direct D-ID embed...';
-      
-      // Remove existing container
-      const existing = document.getElementById('avatar-container');
-      if (existing) existing.remove();
-      
-      // Create iframe container
-      const container = document.createElement('div');
-      container.id = 'avatar-container';
-      container.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        width: 350px;
-        height: 450px;
-        background: rgba(255,255,255,0.1);
-        border: 2px solid rgba(255,255,255,0.3);
-        border-radius: 12px;
-        z-index: 1000;
-        overflow: hidden;
-      `;
-      
-      // Try direct iframe approach
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://agent.d-id.com/embed/v2_agt_G7epb5HP?key=YXV0aDB8NjhiOTU5NmFkNGVkYWRmZDkzMDQ0YzhkOi1ObXhlQnpEWHNaaU56OTdnMUFHZQ==&mode=fabio&orientation=horizontal`;
-      iframe.style.cssText = `
-        width: 100%;
-        height: 100%;
-        border: none;
-        border-radius: 10px;
-      `;
-      iframe.allow = 'microphone; camera; autoplay; encrypted-media';
-      
-      iframe.onload = function() {
-        document.getElementById('avatar-status').textContent = 'Direct embed iframe loaded! If avatar doesn\'t show, try the original D-ID site.';
-      };
-      
-      iframe.onerror = function() {
-        document.getElementById('avatar-status').textContent = 'Direct embed failed. D-ID might require domain whitelisting.';
-        container.innerHTML = `
-          <div style="padding: 20px; text-align: center; color: white;">
-            <h3>🔒 Domain Restricted</h3>
-            <p style="font-size: 14px; opacity: 0.8; line-height: 1.4;">
-              Your D-ID agent might be restricted to specific domains.
-            </p>
-            <a href="https://studio.d-id.com" target="_blank" style="color: #4CAF50; text-decoration: none; font-weight: bold;">
-              👉 Test on D-ID Studio
-            </a>
-          </div>
-        `;
-      };
-      
-      container.appendChild(iframe);
-      document.body.appendChild(container);
-      
-      document.getElementById('avatar-status').textContent = 'Direct embed iframe created. Loading...';
     }
     
     // Hide test UI once React loads (if it ever does)
