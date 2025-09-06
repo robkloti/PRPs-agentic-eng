@@ -172,13 +172,12 @@
       script.src = 'https://agent.d-id.com/v2/index.js';
       script.setAttribute('data-mode', 'fabio');
       script.setAttribute('data-client-key', 'YXV0aDB8NjhiOTU5NmFkNGVkYWRmZDkzMDQ0YzhkOi1ObXhlQnpEWHNaaU56OTdnMUFHZQ==');
+      script.setAttribute('data-base-url', 'https://api.d-id.com');
       script.setAttribute('data-agent-id', 'v2_agt_G7epb5HP');
       script.setAttribute('data-name', 'did-agent');
       script.setAttribute('data-monitor', 'true');
       script.setAttribute('data-orientation', 'horizontal');
       script.setAttribute('data-position', 'right');
-      script.setAttribute('data-width', '350');
-      script.setAttribute('data-height', '400');
       
       script.onload = function() {
         document.getElementById('avatar-status').textContent = 'D-ID script loaded! Checking for avatar...';
@@ -222,101 +221,62 @@
     }
     
     function showDIDEmbed() {
-      document.getElementById('avatar-status').textContent = 'Creating improved D-ID embed...';
+      document.getElementById('avatar-status').textContent = 'Creating direct D-ID embed...';
       
       // Remove existing container
       const existing = document.getElementById('avatar-container');
       if (existing) existing.remove();
       
-      // Create iframe container with better styling
+      // Create iframe container
       const container = document.createElement('div');
       container.id = 'avatar-container';
       container.style.cssText = `
         position: fixed;
-        top: 50px;
-        right: 50px;
-        width: 400px;
-        height: 500px;
-        background: rgba(0,0,0,0.8);
-        border: 3px solid rgba(255,255,255,0.5);
-        border-radius: 15px;
-        z-index: 10000;
+        top: 20px;
+        right: 20px;
+        width: 350px;
+        height: 450px;
+        background: rgba(255,255,255,0.1);
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 12px;
+        z-index: 1000;
         overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       `;
       
-      // Add loading indicator
-      container.innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: white; flex-direction: column;">
-          <div style="width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
-          <div>Loading D-ID Agent...</div>
-        </div>
+      // Try direct iframe approach
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://agent.d-id.com/embed/v2_agt_G7epb5HP?key=YXV0aDB8NjhiOTU5NmFkNGVkYWRmZDkzMDQ0YzhkOi1ObXhlQnpEWHNaaU56OTdnMUFHZQ==&mode=fabio&orientation=horizontal`;
+      iframe.style.cssText = `
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 10px;
       `;
+      iframe.allow = 'microphone; camera; autoplay; encrypted-media';
       
+      iframe.onload = function() {
+        document.getElementById('avatar-status').textContent = 'Direct embed iframe loaded! If avatar doesn\'t show, try the original D-ID site.';
+      };
+      
+      iframe.onerror = function() {
+        document.getElementById('avatar-status').textContent = 'Direct embed failed. D-ID might require domain whitelisting.';
+        container.innerHTML = `
+          <div style="padding: 20px; text-align: center; color: white;">
+            <h3>🔒 Domain Restricted</h3>
+            <p style="font-size: 14px; opacity: 0.8; line-height: 1.4;">
+              Your D-ID agent might be restricted to specific domains.
+            </p>
+            <a href="https://studio.d-id.com" target="_blank" style="color: #4CAF50; text-decoration: none; font-weight: bold;">
+              👉 Test on D-ID Studio
+            </a>
+          </div>
+        `;
+      };
+      
+      container.appendChild(iframe);
       document.body.appendChild(container);
       
-      // Try multiple approaches for D-ID integration
-      setTimeout(() => {
-        // Approach 1: Direct agent URL
-        const iframe1 = document.createElement('iframe');
-        iframe1.src = `https://studio.d-id.com/share?id=v2_agt_G7epb5HP&key=YXV0aDB8NjhiOTU5NmFkNGVkYWRmZDkzMDQ0YzhkOi1ObXhlQnpEWHNaaU56OTdnMUFHZQ==`;
-        iframe1.style.cssText = `width: 100%; height: 100%; border: none;`;
-        iframe1.allow = 'microphone; camera; autoplay; encrypted-media; fullscreen';
-        iframe1.sandbox = 'allow-same-origin allow-scripts allow-popups allow-forms allow-microphone allow-camera';
-        
-        iframe1.onload = function() {
-          document.getElementById('avatar-status').textContent = 'D-ID Studio iframe loaded successfully!';
-        };
-        
-        iframe1.onerror = function() {
-          // Approach 2: Try embed URL
-          const iframe2 = document.createElement('iframe');
-          iframe2.src = `https://agent.d-id.com/v2_agt_G7epb5HP?key=YXV0aDB8NjhiOTU5NmFkNGVkYWRmZDkzMDQ0YzhkOi1ObXhlQnpEWHNaaU56OTdnMUFHZQ==&embed=true`;
-          iframe2.style.cssText = iframe1.style.cssText;
-          iframe2.allow = iframe1.allow;
-          
-          iframe2.onload = function() {
-            document.getElementById('avatar-status').textContent = 'D-ID agent embed loaded!';
-          };
-          
-          iframe2.onerror = function() {
-            // Final fallback - show manual link
-            container.innerHTML = `
-              <div style="padding: 30px; text-align: center; color: white; height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                <h3 style="margin-bottom: 20px;">🎭 D-ID Agent Ready</h3>
-                <p style="margin-bottom: 20px; opacity: 0.9;">Domain added to D-ID! Try these options:</p>
-                
-                <a href="https://studio.d-id.com/share?id=v2_agt_G7epb5HP" target="_blank" 
-                   style="display: block; background: rgba(0,200,0,0.3); color: white; text-decoration: none; 
-                          padding: 15px; border-radius: 8px; margin: 10px 0; border: 1px solid rgba(0,200,0,0.5);">
-                  🎬 Open in D-ID Studio
-                </a>
-                
-                <a href="https://agent.d-id.com/v2_agt_G7epb5HP" target="_blank"
-                   style="display: block; background: rgba(0,100,200,0.3); color: white; text-decoration: none;
-                          padding: 15px; border-radius: 8px; margin: 10px 0; border: 1px solid rgba(0,100,200,0.5);">
-                  🤖 Direct Agent Link  
-                </a>
-                
-                <button onclick="this.parentElement.parentElement.remove()" 
-                        style="margin-top: 20px; padding: 10px; background: rgba(255,0,0,0.3); color: white; 
-                               border: 1px solid rgba(255,0,0,0.5); border-radius: 5px; cursor: pointer;">
-                  ✕ Close
-                </button>
-              </div>
-            `;
-            document.getElementById('avatar-status').textContent = 'D-ID agent ready! Use the links in the popup.';
-          };
-          
-          container.innerHTML = '';
-          container.appendChild(iframe2);
-        };
-        
-        container.innerHTML = '';
-        container.appendChild(iframe1);
-      }, 1000);
-      
-      document.getElementById('avatar-status').textContent = 'Testing D-ID integration approaches...';
+      document.getElementById('avatar-status').textContent = 'Direct embed iframe created. Loading...';
     }
     
     // Hide test UI once React loads (if it ever does)
