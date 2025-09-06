@@ -111,31 +111,49 @@
     </div>
   </div>
   
-  <!-- Immediate test without React -->
-  <div id="test-ui" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 12px; color: white; text-align: center; backdrop-filter: blur(10px); max-width: 80%; z-index: 10000;">
-    <h2>Modern Avatar Interface</h2>
-    <p>Ready to connect to your avatar!</p>
+  <!-- Modern Avatar Interface -->
+  <div id="test-ui" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 20px; color: white; text-align: center; backdrop-filter: blur(10px); max-width: 500px; z-index: 10000; border: 1px solid rgba(255,255,255,0.2);">
+    <h1 style="margin-bottom: 1rem; font-size: 2rem; background: linear-gradient(45deg, #fff, #f0f0f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+      🤖 Your D-ID Avatar
+    </h1>
+    <p style="margin-bottom: 2rem; opacity: 0.9;">Domain whitelisted! Ready to connect.</p>
     
     <div style="margin: 2rem 0;">
-      <button onclick="loadDID()" style="padding: 1rem 2rem; background: rgba(255,255,255,0.3); border: none; border-radius: 8px; color: white; cursor: pointer; margin: 0.5rem; font-weight: bold; min-width: 150px;">
-        🤖 Load D-ID Avatar
-      </button>
-      <button onclick="showDIDEmbed()" style="padding: 1rem 2rem; background: rgba(0,255,0,0.2); border: none; border-radius: 8px; color: white; cursor: pointer; margin: 0.5rem; font-weight: bold; min-width: 150px;">
-        📺 Try Direct Embed
+      <a href="https://studio.d-id.com/share?id=v2_agt_G7epb5HP" target="_blank" 
+         style="display: inline-block; padding: 1rem 2rem; background: rgba(0,200,0,0.3); color: white; text-decoration: none; border-radius: 12px; margin: 0.5rem; font-weight: bold; min-width: 200px; border: 2px solid rgba(0,200,0,0.5); transition: all 0.3s ease;"
+         onmouseover="this.style.background='rgba(0,200,0,0.5)'"
+         onmouseout="this.style.background='rgba(0,200,0,0.3)'">
+        🎬 Open D-ID Studio
+      </a>
+      
+      <a href="https://agent.d-id.com/v2_agt_G7epb5HP" target="_blank"
+         style="display: inline-block; padding: 1rem 2rem; background: rgba(0,100,200,0.3); color: white; text-decoration: none; border-radius: 12px; margin: 0.5rem; font-weight: bold; min-width: 200px; border: 2px solid rgba(0,100,200,0.5); transition: all 0.3s ease;"
+         onmouseover="this.style.background='rgba(0,100,200,0.5)'"
+         onmouseout="this.style.background='rgba(0,100,200,0.3)'">
+        🤖 Direct Avatar Link
+      </a>
+      
+      <button onclick="loadDID()" 
+              style="display: block; width: 100%; margin: 1rem auto; padding: 1rem 2rem; background: rgba(150,0,200,0.3); color: white; border: 2px solid rgba(150,0,200,0.5); border-radius: 12px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;"
+              onmouseover="this.style.background='rgba(150,0,200,0.5)'"
+              onmouseout="this.style.background='rgba(150,0,200,0.3)'">
+        🤖 Load D-ID Avatar (Embed)
       </button>
     </div>
     
-    <div id="avatar-status" style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; max-width: 400px;"></div>
-    
-    <div style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
-      <strong>CORS Issue Detected:</strong><br>
-      D-ID blocks localhost requests. The "Direct Embed" tries an alternative approach.
+    <div style="font-size: 0.85rem; opacity: 0.7; line-height: 1.4;">
+      <strong>✅ Domain Added to D-ID</strong><br>
+      Your Vercel domain is whitelisted. Try the links above!
     </div>
+    
+    <div id="avatar-status" style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; display: none;"></div>
   </div>
   
   <script>
     function loadDID() {
-      document.getElementById('avatar-status').textContent = 'Loading D-ID script...';
+      const statusDiv = document.getElementById('avatar-status');
+      statusDiv.style.display = 'block';
+      statusDiv.textContent = 'Loading D-ID script...';
       
       // Remove any existing D-ID script
       const existing = document.querySelector('script[src*="agent.d-id.com"]');
