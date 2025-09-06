@@ -1,0 +1,48 @@
+{
+  "name": "modern-avatar-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:simple": "vite build --mode production",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:e2e": "playwright test",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
+    "docker:build": "docker build -t modern-avatar-website .",
+    "docker:run": "docker run -p 3000:80 modern-avatar-website",
+    "deploy": "npm run build && npm run docker:build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.1",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
+    "@vitejs/plugin-react": "^5.0.2",
+    "@vitest/ui": "^3.2.4",
+    "eslint": "^9.34.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@heygen/streaming-avatar": "^2.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "recordrtc": "^5.6.2"
+  }
+}

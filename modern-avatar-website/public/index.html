@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Modern Avatar Website - Dual provider support with HeyGen and D-ID for interactive AI avatars" />
+  <meta name="keywords" content="avatar, AI, HeyGen, D-ID, interactive, video streaming, modern UI" />
+  <meta name="author" content="Modern Avatar Website" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Modern Avatar Website" />
+  <meta property="og:description" content="Experience next-generation AI avatars with dual provider support" />
+  <meta property="og:url" content="/" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Modern Avatar Website" />
+  <meta property="twitter:description" content="Experience next-generation AI avatars with dual provider support" />
+  
+  <!-- Favicon and Apple Touch Icon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://api.heygen.com" />
+  <link rel="preconnect" href="https://agent.d-id.com" />
+  <link rel="dns-prefetch" href="https://stun.l.google.com" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Theme and PWA -->
+  <meta name="theme-color" content="#667eea" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <!-- Performance hints -->
+  <link rel="prefetch" href="https://agent.d-id.com/v2/index.js" />
+  
+  <title>Modern Avatar Website</title>
+  
+  <style>
+    /* Critical CSS for loading state */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: white;
+      overflow-x: hidden;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    #root {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .loading-container {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .loading-text {
+      font-size: 1.125rem;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    
+    /* Hide loading once React app loads */
+    #root:not(:empty) .loading-container {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <!-- Loading state shown until React app loads -->
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Loading Avatar Interface...</div>
+    </div>
+  </div>
+  
+  <!-- Immediate test without React -->
+  <div id="test-ui" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 12px; color: white; text-align: center; backdrop-filter: blur(10px); max-width: 80%; z-index: 10000;">
+    <h2>Modern Avatar Interface</h2>
+    <p>Ready to connect to your avatar!</p>
+    
+    <div style="margin: 2rem 0;">
+      <button onclick="loadDID()" style="padding: 1rem 2rem; background: rgba(255,255,255,0.3); border: none; border-radius: 8px; color: white; cursor: pointer; margin: 0.5rem; font-weight: bold; min-width: 150px;">
+        🤖 Load D-ID Avatar
+      </button>
+      <button onclick="showDIDEmbed()" style="padding: 1rem 2rem; background: rgba(0,255,0,0.2); border: none; border-radius: 8px; color: white; cursor: pointer; margin: 0.5rem; font-weight: bold; min-width: 150px;">
+        📺 Try Direct Embed
+      </button>
+    </div>
+    
+    <div id="avatar-status" style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; max-width: 400px;"></div>
+    
+    <div style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
+      <strong>CORS Issue Detected:</strong><br>
+      D-ID blocks localhost requests. The "Direct Embed" tries an alternative approach.
+    </div>
+  </div>
+  
+  <script>
+    function loadDID() {
+      document.getElementById('avatar-status').textContent = 'Loading D-ID script...';
+      
+      // Remove any existing D-ID script
+      const existing = document.querySelector('script[src*="agent.d-id.com"]');
+      if (existing) existing.remove();
+      
+      // Create a dedicated container for the D-ID agent
+      let avatarContainer = document.getElementById('avatar-container');
+      if (!avatarContainer) {
+        avatarContainer = document.createElement('div');
+        avatarContainer.id = 'avatar-container';
+        avatarContainer.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          width: 300px;
+          height: 400px;
+          background: rgba(0,0,0,0.1);
+          border: 2px dashed rgba(255,255,255,0.3);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 14px;
+          z-index: 1000;
+        `;
+        avatarContainer.innerHTML = '<div>Avatar will appear here</div>';
+        document.body.appendChild(avatarContainer);
+      }
+      
+      // Create the D-ID script with your exact configuration
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = 'https://agent.d-id.com/v2/index.js';
+      script.setAttribute('data-mode', 'fabio');
+      script.setAttribute('data-client-key', 'YXV0aDB8NjhiOTU5NmFkNGVkYWRmZDkzMDQ0YzhkOi1ObXhlQnpEWHNaaU56OTdnMUFHZQ==');
+      script.setAttribute('data-base-url', 'https://api.d-id.com');
+      script.setAttribute('data-agent-id', 'v2_agt_G7epb5HP');
+      script.setAttribute('data-name', 'did-agent');
+      script.setAttribute('data-monitor', 'true');
+      script.setAttribute('data-orientation', 'horizontal');
+      script.setAttribute('data-position', 'right');
+      
+      script.onload = function() {
+        document.getElementById('avatar-status').textContent = 'D-ID script loaded! Checking for avatar...';
+        
+        // Check if D-ID agent is initialized
+        setTimeout(() => {
+          const didElements = document.querySelectorAll('[data-name="did-agent"], iframe[src*="d-id"], div[class*="did"], div[id*="did"]');
+          console.log('Found D-ID elements:', didElements);
+          
+          if (didElements.length > 0) {
+            document.getElementById('avatar-status').textContent = `Found ${didElements.length} D-ID element(s)! Avatar loading...`;
+            
+            // Move any D-ID elements to our container
+            didElements.forEach(el => {
+              if (el.tagName === 'IFRAME' || el.offsetWidth > 0) {
+                avatarContainer.innerHTML = '';
+                avatarContainer.appendChild(el);
+                document.getElementById('avatar-status').textContent = 'D-ID Avatar loaded successfully!';
+              }
+            });
+          } else {
+            document.getElementById('avatar-status').textContent = 'D-ID script loaded but no avatar elements found. Check console.';
+            
+            // Try alternative approach - check for global D-ID objects
+            setTimeout(() => {
+              console.log('Window keys containing "did" or "DID":', Object.keys(window).filter(k => k.toLowerCase().includes('did')));
+              console.log('Document elements with did-related attributes:', document.querySelectorAll('[class*="did"], [id*="did"], [data-agent-id]'));
+            }, 2000);
+          }
+        }, 3000);
+      };
+      
+      script.onerror = function(e) {
+        document.getElementById('avatar-status').textContent = 'Error loading D-ID script.';
+        console.error('D-ID script error:', e);
+      };
+      
+      document.body.appendChild(script);
+      console.log('D-ID script added with your configuration');
+      console.log('Script attributes:', script.getAttributeNames().map(name => `${name}="${script.getAttribute(name)}"`));
+    }
+    
+    function showDIDEmbed() {
+      document.getElementById('avatar-status').textContent = 'Creating direct D-ID embed...';
+      
+      // Remove existing container
+      const existing = document.getElementById('avatar-container');
+      if (existing) existing.remove();
+      
+      // Create iframe container
+      const container = document.createElement('div');
+      container.id = 'avatar-container';
+      container.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 350px;
+        height: 450px;
+        background: rgba(255,255,255,0.1);
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 12px;
+        z-index: 1000;
+        overflow: hidden;
+      `;
+      
+      // Try direct iframe approach
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://agent.d-id.com/embed/v2_agt_G7epb5HP?key=YXV0aDB8NjhiOTU5NmFkNGVkYWRmZDkzMDQ0YzhkOi1ObXhlQnpEWHNaaU56OTdnMUFHZQ==&mode=fabio&orientation=horizontal`;
+      iframe.style.cssText = `
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 10px;
+      `;
+      iframe.allow = 'microphone; camera; autoplay; encrypted-media';
+      
+      iframe.onload = function() {
+        document.getElementById('avatar-status').textContent = 'Direct embed iframe loaded! If avatar doesn\'t show, try the original D-ID site.';
+      };
+      
+      iframe.onerror = function() {
+        document.getElementById('avatar-status').textContent = 'Direct embed failed. D-ID might require domain whitelisting.';
+        container.innerHTML = `
+          <div style="padding: 20px; text-align: center; color: white;">
+            <h3>🔒 Domain Restricted</h3>
+            <p style="font-size: 14px; opacity: 0.8; line-height: 1.4;">
+              Your D-ID agent might be restricted to specific domains.
+            </p>
+            <a href="https://studio.d-id.com" target="_blank" style="color: #4CAF50; text-decoration: none; font-weight: bold;">
+              👉 Test on D-ID Studio
+            </a>
+          </div>
+        `;
+      };
+      
+      container.appendChild(iframe);
+      document.body.appendChild(container);
+      
+      document.getElementById('avatar-status').textContent = 'Direct embed iframe created. Loading...';
+    }
+    
+    // Hide test UI once React loads (if it ever does)
+    setTimeout(function() {
+      const root = document.getElementById('root');
+      if (root && root.children.length > 1) {
+        document.getElementById('test-ui').style.display = 'none';
+      }
+    }, 3000);
+  </script>
+
+  <!-- Module script will be injected by Vite -->
+  <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Performance monitoring -->
+  <script>
+    // Mark page load start
+    if ('performance' in window) {
+      window.performance.mark('page-start');
+    }
+    
+    // Basic error handling
+    window.addEventListener('error', function(e) {
+      console.error('Global error:', e.error);
+    });
+    
+    window.addEventListener('unhandledrejection', function(e) {
+      console.error('Unhandled promise rejection:', e.reason);
+    });
+  </script>
+  
+  <!-- Service Worker Registration (for future PWA features) -->
+  <script>
+    if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('SW registered: ', registration);
+          })
+          .catch(function(registrationError) {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
