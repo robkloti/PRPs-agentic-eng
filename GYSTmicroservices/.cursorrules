@@ -1,0 +1,42 @@
+# GYST Microservices Project
+
+## Context Files - READ THESE FIRST
+When starting any task, reference:
+- .context/00-PROJECT-OVERVIEW.md (always read first)
+- .context/01-ARCHITECTURE/dual-mode-deployment.md (for architecture questions)
+- .context/03-MICROSERVICES/service-template-guide.md (when building services)
+- .context/05-DATABASE/supabase-schema.sql (for database questions)
+- .context/07-EXAMPLES/dual-mode-service-complete.py (for code examples)
+- .context/10-WIRASM-CONTEXT/prp-methodology.md (for understanding PRPs)
+
+## Code Standards
+- Python 3.11+ with type hints everywhere
+- Use Pydantic for all data models
+- Follow dual-mode deployment pattern (internal + external)
+- Always include customer_id for data isolation
+- Use structured JSON logging
+- Include /health and /metrics endpoints on all services
+
+## Testing Requirements
+- Write tests before marking task complete
+- Test both internal and external modes separately
+- Use pytest
+- Validate multi-tenant isolation
+
+## When Building Services
+1. Follow service template from .context/03-MICROSERVICES/service-template-guide.md
+2. Support both deployment modes (internal + external)
+3. Use config files (config/internal.yaml and config/external.yaml)
+4. Always isolate data by customer_id
+5. Include health and metrics endpoints
+
+## Database
+- All tables with customer data MUST have customer_id column
+- Always filter queries by customer_id
+- Use Supabase (schema in .context/05-DATABASE/supabase-schema.sql)
+
+## Critical Rules
+- NEVER hardcode API keys or secrets
+- ALWAYS use environment variables
+- NEVER skip customer_id in database queries
+- ALWAYS log with correlation IDs

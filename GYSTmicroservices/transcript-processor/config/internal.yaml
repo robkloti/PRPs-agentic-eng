@@ -1,0 +1,40 @@
+# Internal Mode Configuration
+# For agency client integrations (no billing, full access)
+
+deployment_mode: internal
+
+# Authentication: Simple header-based
+auth:
+  type: header  # X-Customer-ID header
+  required_header: X-Customer-ID
+
+# Billing: Disabled for internal use
+billing:
+  enabled: false
+
+# Rate limiting: No limits for internal clients
+limits:
+  requests_per_minute: null
+  requests_per_hour: null
+  max_concurrent_jobs: null
+
+# Transcription service
+transcription:
+  provider: vapi  # vapi or retell
+  timeout_seconds: 300
+  max_retries: 3
+
+# Database
+database:
+  auto_create_tables: true
+
+# Logging
+logging:
+  level: INFO
+  format: json  # Structured JSON logging
+
+# Health checks
+health:
+  enabled: true
+  check_database: true
+  check_transcription_service: false  # Optional in internal mode

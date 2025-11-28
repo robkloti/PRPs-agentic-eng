@@ -1,0 +1,44 @@
+# External Mode Configuration
+# For public SaaS customers (with billing and rate limits)
+
+deployment_mode: external
+
+# Authentication: API key validation
+auth:
+  type: api_key  # Bearer token in Authorization header
+  header: Authorization
+  prefix: Bearer
+
+# Billing: Enabled for SaaS usage tracking
+billing:
+  enabled: true
+  track_usage: true
+  base_cost_per_transcription: 0.05
+
+# Rate limiting: Enforce quotas per plan
+limits:
+  requests_per_minute: 100  # Default tier limit
+  requests_per_hour: 1000
+  max_concurrent_jobs: 10
+
+# Transcription service
+transcription:
+  provider: vapi  # vapi or retell
+  timeout_seconds: 300
+  max_retries: 2
+
+# Database
+database:
+  auto_create_tables: false  # Don't auto-create in production
+
+# Logging
+logging:
+  level: INFO
+  format: json  # Structured JSON logging
+  include_request_body: false  # Don't log sensitive data
+
+# Health checks
+health:
+  enabled: true
+  check_database: true
+  check_transcription_service: true  # Critical in external mode
