@@ -23,7 +23,7 @@ class UIController {
     
     // Current state
     this.currentState = CONFIG.RECORDING_STATES.IDLE;
-    this.currentMode = CONFIG.AVATAR_MODES.N8N; // Default to N8N mode
+    this.currentMode = CONFIG.AVATAR_MODES.INTERACTIVE; // Start in interactive mode for real-time streaming
     this.isRecording = false;
     this.isProcessing = false;
     this.currentError = null;
@@ -706,6 +706,14 @@ class UIController {
     if (this.recordButton) {
       this.recordButton.disabled = true;
       this.recordButton.setAttribute('aria-label', 'Recording disabled during processing');
+    }
+  }
+
+  setRecordingEnabled(enabled) {
+    if (enabled) {
+      this.enableRecordButton();
+    } else {
+      this.disableRecordButton();
     }
   }
 

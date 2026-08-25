@@ -200,7 +200,7 @@ Connect services with n8n orchestration and build public API gateway.
 - Content pipeline: GHL leads → transcript → qualification
 - Lead qualification flow
 - Orchestrates microservices
-
+1
 **Deliverables:**
 - n8n workflows in queue mode
 - Custom nodes for GYST services

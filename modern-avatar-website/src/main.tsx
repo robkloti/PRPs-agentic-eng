@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { TestApp } from './components/TestApp';
+import { AvatarApp } from './components/AvatarApp';
 import './styles/main.css';
 
 // Performance monitoring setup
@@ -110,7 +110,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <TestApp />
+      <AvatarApp />
     </ErrorBoundary>
   </React.StrictMode>
 );

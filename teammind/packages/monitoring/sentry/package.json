@@ -1,0 +1,44 @@
+{
+  "name": "@tm/sentry",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "format": "prettier --check \"**/*.{ts,tsx}\"",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@tm/prettier-config",
+  "exports": {
+    ".": "./src/index.ts",
+    "./provider": "./src/components/provider.tsx",
+    "./config/client": "./src/sentry.client.config.ts",
+    "./config/server": "./src/sentry.client.server.ts"
+  },
+  "dependencies": {
+    "@sentry/nextjs": "^9.5.0"
+  },
+  "devDependencies": {
+    "@tm/eslint-config": "workspace:*",
+    "@tm/monitoring-core": "workspace:*",
+    "@tm/prettier-config": "workspace:*",
+    "@tm/tailwind-config": "workspace:*",
+    "@tm/tsconfig": "workspace:*",
+    "@types/react": "^19.0.10",
+    "react": "19.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@tm/eslint-config/base",
+      "@tm/eslint-config/react"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  }
+}

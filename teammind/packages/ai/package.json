@@ -1,0 +1,119 @@
+{
+  "name": "@tm/ai",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "format": "prettier --check \"**/*.{mjs,ts,md,json}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./embeddings": "./src/embeddings/index.ts",
+    "./embeddings/jina": "./src/embeddings/jina-embeddings.ts",
+    "./embeddings/reranker": "./src/embeddings/jina-reranker.ts",
+    "./agents/tools": "./src/agents/tools/index.ts",
+    "./agents/graphs": "./src/agents/graphs/index.ts",
+    "./agents/graphs/create": "./src/agents/graphs/create/index.ts",
+    "./agents/graphs/docs-quality-check": "./src/agents/graphs/docs-quality-check/index.ts",
+    "./integrations": "./src/integrations/index.ts",
+    "./integrations/atlassian": "./src/integrations/atlassian/index.ts",
+    "./integrations/microsoft": "./src/integrations/microsoft/index.ts",
+    "./integrations/notion": "./src/integrations/notion/index.ts",
+    "./integrations/google": "./src/integrations/google/index.ts",
+    "./storage": "./src/storage/index.ts",
+    "./converters": "./src/converters/index.ts",
+    "./types": "./src/types/index.ts",
+    "./prompts": "./src/prompts/index.ts",
+    "./utils": "./src/_utils/index.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ],
+      "embeddings/jina": [
+        "src/embeddings/jina-embeddings.ts"
+      ],
+      "embeddings/reranker": [
+        "src/embeddings/jina-reranker.ts"
+      ],
+      "agents/tools": [
+        "src/agents/tools/index.ts"
+      ],
+      "agents/graphs/create": [
+        "src/agents/graphs/create/index.ts"
+      ],
+      "agents/graphs/docs-quality-check": [
+        "src/agents/graphs/docs-quality-check/index.ts"
+      ],
+      "integrations/atlassian": [
+        "src/integrations/atlassian/index.ts"
+      ],
+      "integrations/microsoft": [
+        "src/integrations/microsoft/index.ts"
+      ],
+      "integrations/notion": [
+        "src/integrations/notion/index.ts"
+      ],
+      "utils": [
+        "src/_utils/index.ts"
+      ]
+    }
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^1.2.12",
+    "@google/genai": "^0.9.0",
+    "@guyplusplus/turndown-plugin-gfm": "^1.0.7",
+    "@langchain/langgraph": "^0.2.55",
+    "@notionhq/client": "^2.3.0",
+    "@opentelemetry/api": "^1.9.0",
+    "@supabase/postgrest-js": "^1.19.2",
+    "@supabase/supabase-js": "^2.49.1",
+    "@tavily/core": "^0.5.0",
+    "@tm/supabase": "workspace:*",
+    "@types/mdast": "^4.0.4",
+    "ai": "^4.3.9",
+    "exa-js": "^1.6.13",
+    "expr-eval": "^2.0.2",
+    "googleapis": "^148.0.0",
+    "gotenberg-js-client": "^0.7.4",
+    "markdown-table": "^2.0.0",
+    "md-to-adf": "^0.6.4",
+    "mdast": "^3.0.0",
+    "mdast-util-from-markdown": "^2.0.2",
+    "mdast-util-gfm": "^3.1.0",
+    "mdast-util-to-markdown": "^2.1.2",
+    "mdast-util-to-string": "^4.0.0",
+    "micromark-extension-gfm": "^3.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
+    "remark-parse": "^11.0.0",
+    "text-segmentation": "^1.0.3",
+    "turndown": "^7.2.0",
+    "turndown-plugin-confluence-to-gfm": "^0.5.0",
+    "unified": "^11.0.5",
+    "unist": "^0.0.1"
+  },
+  "devDependencies": {
+    "@tm/eslint-config": "workspace:*",
+    "@tm/prettier-config": "workspace:*",
+    "@tm/tsconfig": "workspace:*",
+    "@types/markdown-table": "^2.0.0",
+    "@types/node": "^22.13.10",
+    "@types/turndown": "^5.0.5",
+    "eslint": "^8.57.1",
+    "notion-types": "7.3.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "zod": "^3.24.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@tm/eslint-config/base"
+    ]
+  },
+  "prettier": "@tm/prettier-config"
+}

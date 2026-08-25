@@ -1,0 +1,141 @@
+{
+  "pageTitle": "Konnektoren",
+  "pageDescription": "Verbinden Sie TeamMind mit Ihren Workspace-Tools",
+  "connectors": {
+    "selectSources": "Quellen auswählen",
+    "atlassian": {
+      "name": "Atlassian",
+      "description": "Verbinden Sie sich mit Jira und Confluence, um TeamMind zu synchronisieren",
+      "disconnectTitle": "Atlassian trennen?",
+      "disconnectDescription": "Dadurch wird Ihre Atlassian-Verbindung entfernt und alle synchronisierten Confluence-Dokumente werden gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+      "confluenceSpaces": "Confluence-Bereiche",
+      "jiraBoards": "Jira-Boards",
+      "startTraining": "Synchronisierung starten",
+      "selectSources": "Atlassian-Quellen auswählen",
+      "selectSourcesDescription": "Wählen Sie die Confluence-Bereiche und Jira-Boards aus, die Sie mit TeamMind synchronisieren möchten",
+      "selectSpacesPlaceholder": "Bereiche auswählen...",
+      "searchSpacesPlaceholder": "Bereiche suchen...",
+      "noSpacesFound": "Keine Bereiche gefunden.",
+      "selectAllSpaces": "Alle Bereiche auswählen",
+      "spacesSelected_one": "{{count}} Bereich ausgewählt",
+      "spacesSelected_other": "{{count}} Bereiche ausgewählt",
+      "selectBoardsPlaceholder": "Boards auswählen...",
+      "searchBoardsPlaceholder": "Boards suchen...",
+      "noBoardsFound": "Keine Boards gefunden.",
+      "selectAllBoards": "Alle Boards auswählen",
+      "boardsSelected_one": "{{count}} Board ausgewählt",
+      "boardsSelected_other": "{{count}} Boards ausgewählt"
+    },
+    "microsoft": {
+      "name": "Microsoft",
+      "description": "Verbinden Sie sich mit Microsoft, um Ihre Workspace-Dokumente zu synchronisieren",
+      "disconnectTitle": "Microsoft trennen?",
+      "disconnectDescription": "Dadurch wird Ihre Microsoft-Verbindung entfernt und alle synchronisierten Dokumente werden gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+      "sharepointWebsites": "SharePoint-Websites",
+      "startTraining": "Synchronisierung starten",
+      "selectSources": "SharePoint-Websites auswählen",
+      "selectSourcesDescription": "Wählen Sie die SharePoint-Websites aus, die Sie mit TeamMind synchronisieren möchten",
+      "selectWebsitesPlaceholder": "Websites auswählen...",
+      "searchWebsitesPlaceholder": "Websites suchen...",
+      "noWebsitesFound": "Keine Websites gefunden.",
+      "selectAllWebsites": "Alle Websites auswählen",
+      "websitesSelected_one": "{{count}} Website ausgewählt",
+      "websitesSelected_other": "{{count}} Websites ausgewählt"
+    },
+    "notion": {
+      "name": "Notion",
+      "description": "Synchronisieren Sie Ihren Notion-Arbeitsbereich und Ihre Dokumente",
+      "disconnectTitle": "Notion trennen?",
+      "disconnectDescription": "Dadurch wird Ihre Notion-Verbindung entfernt und alle synchronisierten Dokumente werden gelöscht. Diese Aktion kann nicht rückgängig gemacht werden."
+    },
+    "google": {
+      "name": "Google",
+      "description": "Integrieren Sie sich in Ihre Google Workspace-Anwendungen",
+      "disconnectTitle": "Google trennen",
+      "disconnectDescription": "Dadurch werden Gmail, Google Kalender und Google Drive getrennt. Sie müssen sich erneut verbinden, um diese Dienste wieder zu nutzen.",
+      "selectSources": "Google Drive-Quellen auswählen",
+      "selectSourcesDescription": "Wählen Sie die Google Drive-Ordner aus, die Sie mit Ihrem Arbeitsbereich synchronisieren möchten",
+      "driveFolders": "Google Drive Ordner",
+      "searchFoldersPlaceholder": "Ordner suchen...",
+      "noSearchResults": "Keine Ordner gefunden, die \"{{query}}\" entsprechen",
+      "noFoldersFound": "Keine Ordner in Ihrem Google Drive gefunden.",
+      "selectFoldersMessage": "Wählen Sie die Ordner aus, die Sie synchronisieren möchten.",
+      "foldersSelected_one": "{{count}} Ordner ausgewählt",
+      "foldersSelected_other": "{{count}} Ordner ausgewählt",
+      "startTraining": "Synchronisierung starten"
+    },
+    "figma": {
+      "name": "Figma",
+      "description": "Greifen Sie auf Ihre Figma-Designs und -Komponenten zu"
+    },
+    "github": {
+      "name": "GitHub",
+      "description": "Integrieren Sie sich in Ihre GitHub-Repositories"
+    },
+    "slack": {
+      "name": "Slack",
+      "description": "Verbinden Sie sich mit Ihren Slack-Arbeitsbereichen und -Kanälen"
+    },
+    "teams": {
+      "name": "Microsoft Teams",
+      "description": "Integrieren Sie sich in Ihre Microsoft Teams-Kanäle und -Chats"
+    }
+  },
+  "connectorsModal": {
+    "title": "Konnektoren",
+    "description": "Verbinden Sie Ihre Tools und Datenquellen"
+  },
+  "status": {
+    "connected": "Verbunden",
+    "syncing": "Synchronisierung läuft",
+    "comingSoon": "Demnächst verfügbar",
+    "connect": "Verbinden",
+    "configure": "Konfigurieren",
+    "disconnect": "Trennen",
+    "cancel": "Abbrechen",
+    "waitForConnection": "Bitte warten Sie einen Moment. Der Verbindungsprozess ist noch im Gange. Versuchen Sie es in wenigen Minuten erneut.",
+    "waitTitle": "Verbindung wird hergestellt",
+    "ok": "OK",
+    "trainingTitle": "Ihre KI wird trainiert",
+    "disconnecting": "Verbindung wird getrennt...",
+    "typeToConfirm": "Geben Sie 'disconnect' ein, um zu bestätigen",
+    "unavailable": "(nicht verfügbar)",
+    "missingScopesWarning_one": "Fehlende Berechtigung für 1 Dienst",
+    "missingScopesWarning_other": "Fehlende Berechtigungen für {{count}} Dienste",
+    "addPermissions": "Zugriff gewähren"
+  },
+  "manufacturers": {
+    "atlassian": "Atlassian",
+    "microsoft": "Microsoft",
+    "notion": "Notion",
+    "google": "Google",
+    "moreComingSoon": "Weitere folgen demnächst"
+  },
+  "descriptions": {
+    "documentsAndTickets": "Dokumente & Tickets",
+    "emailsCalendarDocuments": "E-Mail, Kalender & Dokumente",
+    "documents": "Dokumente",
+    "additionalIntegrations": "Zusätzliche Integrationen"
+  },
+  "connectorsList": {
+    "confluence": "Confluence",
+    "jira": "Jira",
+    "sharepoint": "SharePoint",
+    "onenote": "OneNote",
+    "gmail": "Gmail",
+    "googleCalendar": "Calendar",
+    "googleDrive": "Google Drive",
+    "notion": "Notion"
+  },
+  "common": {
+    "saving": "Speichern...",
+    "cancel": "Abbrechen"
+  },
+  "firstSync": {
+    "title": "Erste Synchronisierung läuft",
+    "description": "Wir importieren Ihre Dokumente. Dies kann je nach Anzahl der Dokumente einige Minuten dauern. Sie werden automatisch weitergeleitet, sobald die Synchronisierung abgeschlossen ist.",
+    "skipWaiting": "Warten überspringen",
+    "syncComplete": "Synchronisierung abgeschlossen!",
+    "redirecting": "Dokumente sind bereit. Weiterleitung zur Startseite..."
+  }
+}

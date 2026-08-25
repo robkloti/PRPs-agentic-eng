@@ -1,0 +1,39 @@
+{
+  "name": "@tm/email-templates",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "format": "prettier --check \"**/*.{ts,tsx}\"",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@tm/prettier-config",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@react-email/components": "0.0.33"
+  },
+  "devDependencies": {
+    "@tm/eslint-config": "workspace:*",
+    "@tm/i18n": "workspace:*",
+    "@tm/prettier-config": "workspace:*",
+    "@tm/tailwind-config": "workspace:*",
+    "@tm/tsconfig": "workspace:*"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@tm/eslint-config/base",
+      "@tm/eslint-config/react"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "billing": {
+    "product": {
+      "think": {
+        "name": "THINK",
+        "description": "KI-gestützte Wissensabfrage für Ihr Team",
+        "badge": "Essential"
+      },
+      "think_create": {
+        "name": "THINK & CREATE",
+        "description": "KI-gestützte Komplettlösung für Wissensmanagement",
+        "badge": "Complete"
+      },
+      "think_create_pro": {
+        "name": "THINK & CREATE PRO",
+        "description": "Erweitertes KI-gestütztes Wissensmanagement",
+        "badge": "Professional"
+      }
+    },
+    "plan": {
+      "think_monthly": {
+        "name": "Think (Monatlich)"
+      },
+      "think_yearly": {
+        "name": "Think (Jährlich)"
+      },
+      "think_create_monthly": {
+        "name": "Think & Create (Monatlich)"
+      },
+      "think_create_yearly": {
+        "name": "Think & Create (Jährlich)"
+      },
+      "think_create_pro_monthly": {
+        "name": "Think & Create Pro (Monatlich)"
+      },
+      "think_create_pro_yearly": {
+        "name": "Think & Create Pro (Jährlich)"
+      }
+    },
+    "line_item": {
+      "think": {
+        "name": "Think"
+      },
+      "think_create": {
+        "name": "Think & Create"
+      },
+      "think_create_pro": {
+        "name": "Think & Create Pro"
+      }
+    },
+    "feature": {
+      "think": {
+        "knowledge_hub": "KI-gestützter Wissens-Hub: Basis-Zugriff auf Textinhalte aus Ihren Workspace-Tools",
+        "search_discovery": "Intelligente Suche & Erkundung verbundener Plattformen",
+        "context_assistant": "Erweiterter Echtzeit-Kontext-Assistent"
+      },
+      "think_create": {
+        "everything_think": "Alles aus dem THINK Plan",
+        "knowledge_hub": "KI-gestützter Wissens-Hub: Vollständiger Zugriff auf Dokumente aus allen Workspace-Tools",
+        "meeting_coverage": "5 Stunden intelligente Besprechungsaufzeichnung pro Monat",
+        "document_generation": "Intelligente Dokumenterstellung & Wissensdatenbank-Aktualisierungen",
+        "content_management": "Automatisierte Ticket- & Workspace-Inhaltsverwaltung"
+      },
+      "think_create_pro": {
+        "knowledge_hub": "Erweiterter KI-gestützter Wissens-Hub mit priorisierter Verarbeitung",
+        "meeting_coverage": "10 Stunden intelligente Besprechungsaufzeichnung pro Monat",
+        "analytics_reporting": "Erweiterte Analysen und Berichte",
+        "support_assistance": "Priorisierter Support und Implementierungsunterstützung"
+      }
+    }
+  },
+  "subscriptionTabSubheading": "Hier können Sie Ihr Abonnement und Ihre Abrechnung verwalten",
+  "planCardTitle": "Ihr aktueller Plan",
+  "planCardDescription": "Hier finden Sie Details zu Ihrem aktuellen Plan. Sie können diesen jederzeit ändern oder Ihr Abonnement kündigen.",
+  "planRenewal": "Verlängert sich alle {{interval}} zum Preis von {{price}}",
+  "planDetails": "Details zum Plan",
+  "checkout": "Zur Kasse",
+  "trialEndsOn": "Ihre Testphase endet am",
+  "billingPortalCardButton": "Zum Rechnungsportal",
+  "billingPortalCardTitle": "Rechnungsdaten verwalten",
+  "billingPortalCardDescription": "Verwalten Sie im Rechnungsportal Ihr Abonnement und Ihre Abrechnung. Sie können Ihren Plan ändern oder kündigen sowie Ihre Rechnungen herunterladen.",
+  "manualBillingCardTitle": "Benötigen Sie Hilfe bei der Abrechnung?",
+  "manualBillingCardDescription": "Bei Fragen zur Abrechnung oder Änderungen an Ihrem Abonnement wenden Sie sich bitte an unser Support-Team.",
+  "manualBillingCardButton": "Support kontaktieren",
+  "cancelAtPeriodEndDescription": "Ihr Abonnement wird voraussichtlich am {{- endDate }} gekündigt.",
+  "renewAtPeriodEndDescription": "Ihr Abonnement wird voraussichtlich am {{- endDate }} verlängert",
+  "noPermissionsAlertHeading": "Sie haben keine Berechtigung, die Abrechnungseinstellungen zu ändern",
+  "noPermissionsAlertBody": "Bitte wenden Sie sich an den Kontoinhaber, um die Abrechnungseinstellungen für Ihr Konto zu ändern.",
+  "checkoutSuccessTitle": "Fertig! Sie können loslegen.",
+  "checkoutSuccessDescription": "Vielen Dank für Ihr Abonnement! Wir haben es erfolgreich verarbeitet und senden Ihnen eine Bestätigungs-E-Mail an {{ customerEmail }}.",
+  "checkoutSuccessBackButton": "Zur App",
+  "cannotManageBillingAlertTitle": "Sie können die Abrechnung nicht verwalten",
+  "cannotManageBillingAlertDescription": "Sie haben keine Berechtigung, die Abrechnung zu verwalten. Bitte wenden Sie sich an den Kontoinhaber.",
+  "manageTeamPlan": "Teamplan verwalten",
+  "manageTeamPlanDescription": "Wählen Sie einen Plan, der den Bedürfnissen Ihres Teams entspricht. Sie können diesen jederzeit erweitern oder reduzieren.",
+  "basePlan": "Basis-Plan",
+  "billingInterval": {
+    "label": "Abrechnungsintervall wählen",
+    "month": "Monatlich",
+    "year": "Jährlich"
+  },
+  "custom": "Benutzerdefiniert",
+  "lifetime": "Unbegrenzt",
+  "trialPeriod": "{{period}} Tage Testphase",
+  "perPeriod": "pro {{period}}",
+  "redirectingToPayment": "Sie werden zur Kasse weitergeleitet. Bitte warten...",
+  "proceedToPayment": "Zur Zahlung",
+  "startTrial": "Testphase starten",
+  "perTeamMember": "pro Teammitglied",
+  "perUnit": "Pro {{unit}} Nutzung",
+  "teamMembers": "Teammitglieder",
+  "includedUpTo": "Bis zu {{upTo}} {{unit}} im Plan enthalten",
+  "fromPreviousTierUpTo": "für jede/n {{unit}} für die nächsten {{upTo}} {{unit}}",
+  "andAbove": "ab {{previousTier}} {{unit}}",
+  "forEveryUnit": "für jede/n {{unit}}",
+  "setupFee": "zuzüglich einer Einrichtungsgebühr von {{setupFee}}",
+  "perUnitIncluded": "({{included}} enthalten)",
+  "featuresLabel": "Funktionen",
+  "detailsLabel": "Details",
+  "planPickerLabel": "Wählen Sie Ihren Plan",
+  "planCardLabel": "Plan verwalten",
+  "planPickerAlertErrorTitle": "Fehler beim Abrufen der Kasse",
+  "planPickerAlertErrorDescription": "Beim Abrufen der Kasse ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+  "subscriptionCancelled": "Abonnement gekündigt",
+  "cancelSubscriptionDate": "Ihr Abonnement wird zum Ende des Zeitraums gekündigt",
+  "noPlanChosen": "Bitte wählen Sie einen Plan",
+  "noIntervalPlanChosen": "Bitte wählen Sie ein Abrechnungsintervall",
+  "contactSupport": "Support kontaktieren",
+  "status": {
+    "free": {
+      "badge": "Kostenlos",
+      "heading": "Sie nutzen derzeit den kostenlosen Plan",
+      "description": "Sie nutzen den kostenlosen Plan. Sie können jederzeit auf einen kostenpflichtigen Plan upgraden."
+    },
+    "active": {
+      "badge": "Aktiv",
+      "heading": "Ihr Abonnement ist aktiv",
+      "description": "Ihr Abonnement ist aktiv. Sie können es im Kundenportal verwalten."
+    },
+    "trialing": {
+      "badge": "Testphase",
+      "heading": "Sie nutzen die Testphase",
+      "description": "Sie können alle Vorteile des Plans bis zum Ende der Testphase nutzen"
+    },
+    "past_due": {
+      "badge": "Überfällig",
+      "heading": "Ihre Rechnung ist überfällig",
+      "description": "Bitte aktualisieren Sie Ihre Zahlungsmethode."
+    },
+    "canceled": {
+      "badge": "Gekündigt",
+      "heading": "Ihr Abonnement wurde gekündigt",
+      "description": "Ihr Abonnement wurde gekündigt und endet voraussichtlich zum Ende des Abrechnungszeitraums."
+    },
+    "unpaid": {
+      "badge": "Unbezahlt",
+      "heading": "Ihre Rechnung ist unbezahlt",
+      "description": "Bitte aktualisieren Sie Ihre Zahlungsmethode."
+    },
+    "incomplete": {
+      "badge": "Unvollständig",
+      "heading": "Wir warten auf Ihre Zahlung",
+      "description": "Bitte haben Sie etwas Geduld, wir warten noch auf den Eingang Ihrer Zahlung."
+    },
+    "incomplete_expired": {
+      "badge": "Abgelaufen",
+      "heading": "Ihre Zahlung ist abgelaufen",
+      "description": "Bitte aktualisieren Sie Ihre Zahlungsmethode."
+    },
+    "paused": {
+      "badge": "Pausiert",
+      "heading": "Ihr Abonnement ist pausiert",
+      "description": "Ihr Abonnement ist pausiert. Sie können es jederzeit fortsetzen."
+    },
+    "succeeded": {
+      "badge": "Erfolgreich",
+      "heading": "Ihre Zahlung war erfolgreich",
+      "description": "Vielen Dank für Ihr Abonnement, die Zahlung war erfolgreich!"
+    },
+    "pending": {
+      "badge": "Ausstehend",
+      "heading": "Ihre Zahlung ist ausstehend",
+      "description": "Bitte haben Sie etwas Geduld, Ihre Zahlung ist noch ausstehend."
+    },
+    "failed": {
+      "badge": "Fehlgeschlagen",
+      "heading": "Ihre Zahlung ist fehlgeschlagen",
+      "description": "Bitte aktualisieren Sie Ihre Zahlungsmethode."
+    }
+  }
+}

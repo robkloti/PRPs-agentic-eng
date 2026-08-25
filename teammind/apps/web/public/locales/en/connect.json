@@ -1,0 +1,139 @@
+{
+  "pageTitle": "Connectors",
+  "pageDescription": "Connect your TeamMind to your workspace tools",
+  "connectors": {
+    "selectSources": "Select Sources",
+    "atlassian": {
+      "name": "Atlassian",
+      "description": "Connect to Jira and Confluence to sync your workspace",
+      "disconnectTitle": "Disconnect Atlassian?",
+      "disconnectDescription": "This will remove your Atlassian connection and delete all synced Confluence documents. This action cannot be undone.",
+      "confluenceSpaces": "Confluence Spaces",
+      "jiraBoards": "Jira Boards",
+      "startTraining": "Start Syncing",
+      "selectSources": "Select Atlassian Sources",
+      "selectSourcesDescription": "Choose the Confluence spaces and Jira boards you want to sync with your workspace",
+      "selectSpacesPlaceholder": "Select spaces...",
+      "searchSpacesPlaceholder": "Search spaces...",
+      "noSpacesFound": "No spaces found.",
+      "selectAllSpaces": "Select All Spaces",
+      "spacesSelected_one": "{{count}} space selected",
+      "spacesSelected_other": "{{count}} spaces selected",
+      "selectBoardsPlaceholder": "Select boards...",
+      "searchBoardsPlaceholder": "Search boards...",
+      "noBoardsFound": "No boards found.",
+      "selectAllBoards": "Select All Boards",
+      "boardsSelected_one": "{{count}} board selected",
+      "boardsSelected_other": "{{count}} boards selected"
+    },
+    "microsoft": {
+      "name": "Microsoft",
+      "description": "Connect to Microsoft to sync your workspace documents",
+      "disconnectTitle": "Disconnect Microsoft?",
+      "disconnectDescription": "This will remove your Microsoft connection and delete all synced documents. This action cannot be undone.",
+      "sharepointWebsites": "SharePoint Websites",
+      "startTraining": "Start Syncing",
+      "selectSources": "Select SharePoint Websites",
+      "selectSourcesDescription": "Choose the SharePoint websites you want to sync with your workspace",
+      "selectWebsitesPlaceholder": "Select websites...",
+      "searchWebsitesPlaceholder": "Search websites...",
+      "noWebsitesFound": "No websites found.",
+      "selectAllWebsites": "Select All Websites",
+      "websitesSelected_one": "{{count}} website selected",
+      "websitesSelected_other": "{{count}} websites selected"
+    },
+    "notion": {
+      "name": "Notion",
+      "description": "Sync your Notion workspace and documents"
+    },
+    "google": {
+      "name": "Google",
+      "description": "Integrate with your Google Workspace applications",
+      "disconnectTitle": "Disconnect Google",
+      "disconnectDescription": "This will disconnect Gmail, Google Calendar, and Google Drive. You'll need to reconnect to use these services again.",
+      "selectSources": "Select Google Drive Sources",
+      "selectSourcesDescription": "Choose the Google Drive folders you want to sync with your workspace",
+      "driveFolders": "Google Drive Folders",
+      "searchFoldersPlaceholder": "Search folders...",
+      "noSearchResults": "No folders found matching \"{{query}}\"",
+      "noFoldersFound": "No folders found in your Google Drive.",
+      "selectFoldersMessage": "Select the folders you want to sync.",
+      "foldersSelected_one": "{{count}} folder selected",
+      "foldersSelected_other": "{{count}} folders selected",
+      "startTraining": "Start Syncing"
+    },
+    "figma": {
+      "name": "Figma",
+      "description": "Access your Figma designs and components"
+    },
+    "github": {
+      "name": "GitHub",
+      "description": "Integrate with your GitHub repositories"
+    },
+    "slack": {
+      "name": "Slack",
+      "description": "Connect with your Slack workspaces and channels"
+    },
+    "teams": {
+      "name": "Microsoft Teams",
+      "description": "Integrate with your Microsoft Teams channels and chats"
+    }
+  },
+  "connectorsModal": {
+    "title": "Connectors",
+    "description": "Connect your tools and data sources"
+  },
+  "status": {
+    "connected": "Connected",
+    "syncing": "Syncing",
+    "comingSoon": "Coming Soon",
+    "connect": "Connect",
+    "configure": "Configure",
+    "disconnect": "Disconnect",
+    "cancel": "Cancel",
+    "waitForConnection": "Please wait a moment. The connection process is still in progress. Try again in a few minutes.",
+    "waitTitle": "Connection in Progress",
+    "ok": "OK",
+    "trainingTitle": "Your AI is being trained",
+    "disconnecting": "Disconnecting...",
+    "typeToConfirm": "Type 'disconnect' to confirm",
+    "unavailable": "(unavailable)",
+    "missingScopesWarning_one": "Missing permissions for 1 service",
+    "missingScopesWarning_other": "Missing permissions for {{count}} services",
+    "addPermissions": "Grant Access"
+  },
+  "manufacturers": {
+    "atlassian": "Atlassian",
+    "microsoft": "Microsoft",
+    "notion": "Notion",
+    "google": "Google",
+    "moreComingSoon": "More coming soon"
+  },
+  "descriptions": {
+    "documentsAndTickets": "Documents & Tickets",
+    "emailsCalendarDocuments": "Email, Calendar & Documents",
+    "documents": "Documents",
+    "additionalIntegrations": "Additional integrations"
+  },
+  "connectorsList": {
+    "confluence": "Confluence",
+    "jira": "Jira",
+    "sharepoint": "SharePoint",
+    "onenote": "OneNote",
+    "gmail": "Gmail",
+    "googleCalendar": "Calendar",
+    "googleDrive": "Google Drive",
+    "notion": "Notion"
+  },
+  "common": {
+    "saving": "Saving...",
+    "cancel": "Cancel"
+  },
+  "firstSync": {
+    "title": "First sync in progress",
+    "description": "We are importing your documents. This may take a few minutes depending on the number of documents. You will be automatically redirected once the sync is complete.",
+    "skipWaiting": "Skip waiting",
+    "syncComplete": "Sync complete!",
+    "redirecting": "Documents are ready. Redirecting to home..."
+  }
+}

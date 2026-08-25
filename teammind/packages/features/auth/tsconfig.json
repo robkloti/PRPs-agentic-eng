@@ -1,0 +1,8 @@
+{
+  "extends": "@tm/tsconfig/base.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+  },
+  "include": ["*.ts", "src", "../../../apps/web/app/connectors/[type]/select/_components/connector-select-layout.tsx"],
+  "exclude": ["node_modules"]
+}

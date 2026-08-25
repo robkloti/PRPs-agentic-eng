@@ -1,0 +1,17 @@
+{
+  "pageTitle": "Support",
+  "pageDescription": "Need help? Submit a support request and our team will get back to you as soon as possible.",
+  "issueType": "Issue Type",
+  "selectIssueType": "Select an issue type",
+  "issueBilling": "Billing",
+  "issueBug": "Bug Report",
+  "issueFeature": "Feature Request",
+  "issueGeneral": "General Question",
+  "issueOther": "Other",
+  "message": "Message",
+  "submitRequest": "Submit Request",
+  "requestSuccess": "Request Submitted Successfully",
+  "requestSuccessDescription": "Thank you for your request. Our support team will contact you shortly.",
+  "requestError": "Error Submitting Request",
+  "requestErrorDescription": "There was an error submitting your request. Please try again or contact us directly."
+}

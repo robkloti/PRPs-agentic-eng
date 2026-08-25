@@ -12,3 +12,10 @@ wheels/
 .env
 
 .claude/agents
+
+.env.local
+**/.env.local
+bronvilleai-modernized/
+bronvilleai/
+heygen-streaming-app/
+pydantic-langgraph-mastery/reference_repos/

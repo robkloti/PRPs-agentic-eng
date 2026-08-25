@@ -1,0 +1,43 @@
+{
+  "name": "@tm/database-webhooks",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "format": "prettier --check \"**/*.{ts,tsx}\"",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@tm/prettier-config",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "@tm/billing": "workspace:^",
+    "@tm/billing-gateway": "workspace:^",
+    "@tm/eslint-config": "workspace:*",
+    "@tm/prettier-config": "workspace:*",
+    "@tm/shared": "workspace:^",
+    "@tm/stripe": "workspace:^",
+    "@tm/supabase": "workspace:^",
+    "@tm/tailwind-config": "workspace:*",
+    "@tm/team-accounts": "workspace:^",
+    "@tm/tsconfig": "workspace:*",
+    "zod": "^3.24.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@tm/eslint-config/base",
+      "@tm/eslint-config/react"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  }
+}

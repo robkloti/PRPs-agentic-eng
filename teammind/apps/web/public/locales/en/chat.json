@@ -1,0 +1,121 @@
+{
+  "pageTitle": "Chat",
+  "promptSuggestions": {
+    "explain": {
+      "title": "Explain",
+      "text": "Explain me how to..."
+    },
+    "summarize": {
+      "title": "Summarize",
+      "text": "Summarize this document..."
+    },
+    "compare": {
+      "title": "Compare",
+      "text": "Compare these two concepts..."
+    },
+    "find": {
+      "title": "Find",
+      "text": "Find information about..."
+    },
+    "analyze": {
+      "title": "Analyze",
+      "text": "Analyze the following data..."
+    },
+    "create": {
+      "title": "Create",
+      "text": "Create a plan for..."
+    },
+    "translate": {
+      "title": "Translate",
+      "text": "Translate this text to..."
+    },
+    "brainstorm": {
+      "title": "Brainstorm",
+      "text": "Brainstorm ideas for..."
+    }
+  },
+  "sources": {
+    "all": "All sources",
+    "selected": "sources",
+    "selectSources": "Select sources",
+    "addMore": "Add more sources",
+    "addSources": "Add sources",
+    "references": "References",
+    "allReferences": "All References",
+    "allReferencesDescription": "References used in this answer"
+  },
+  "connectors": {
+    "count": "{{count}} Connector",
+    "count_plural": "{{count}} Connectors",
+    "none": "No Connectors",
+    "connectPrompt": "Would you like to connect a data source now?",
+    "inputDisabled": "Connect a data source to start chatting"
+  },
+  "greetings": {
+    "morning": "Good morning, {{username}}",
+    "afternoon": "Good afternoon, {{username}}",
+    "evening": "Good evening, {{username}}",
+    "night": "Hi {{username}}, working late?",
+    "placeholder": "Ask TeamMind..."
+  },
+  "recentChats": "Recent Chats",
+  "favoriteChats": "Favorite Chats",
+  "recent": "Recent",
+  "favorites": "Favorites",
+  "viewAll": "View All",
+  "noFavoritesYet": "No favorite conversations yet",
+  "history": {
+    "pageTitle": "Chat History",
+    "title": "Chat History",
+    "favoriteTitle": "Favorite Chats",
+    "description": "View and manage your previous conversations",
+    "favoriteDescription": "View and manage your favorite conversations",
+    "search": "Search conversations...",
+    "showFavorites": "Show favorites only",
+    "previousChats": "{{count}} previous chats",
+    "previousChatsWithSearch": "{{count}} results for '{{query}}'",
+    "favoritesCount": "{{count}} favorite chats",
+    "select": "Select",
+    "selected": "selected",
+    "cancel": "Cancel",
+    "selectAll": "Select All",
+    "deleteSelected": "Delete Selected",
+    "newConversation": "New Conversation",
+    "noConversations": "You don't have any conversations yet",
+    "noFavorites": "You don't have any favorite conversations yet",
+    "noSearchResults": "No results found for '{{query}}'"
+  },
+  "sessionTooLong": "This THINK Session is too long.",
+  "startNewChat": "Start New",
+  "chatMessageLimitReached": "Chat message limit reached: {{currentUsage}} / {{limit}} characters used in the last 5 hours. Please wait or upgrade your plan for higher limits.",
+  "searching": "Searching...",
+  "expandedSearchQuery": "Expanded search query:",
+  "thinking": "Thinking...",
+  "searchingInSources": "Searching in {{count}} sources",
+  "noRelevantSourcesFound": "No relevant sources found.",
+  "search": {
+    "lookingFor": "I'm looking for"
+  },
+  "scrollToBottom": "Scroll to bottom",
+  "howCanIHelpYouToday": "How can I help you today?",
+  "whatIsTheWeatherInTokyo": "What is the weather in Tokyo?",
+  "whatIsAssistantUi": "What is assistant-ui?",
+  "typeYourMessage": "Type your question...",
+  "send": "Send",
+  "loadingConversations": "Loading conversations...",
+  "noConversationsYet": "You haven't started any chats yet",
+  "addToBookmarks": "Add to bookmarks",
+  "removeFromBookmarks": "Remove from bookmarks",
+  "addedToBookmarks": "Added to bookmarks",
+  "removedFromBookmarks": "Removed from bookmarks",
+  "errorTogglingBookmark": "Error toggling bookmark status",
+  "aiErrorNotice": "TeamMind may make mistakes. Please verify the answers.",
+  "usingTool": "Using tool...",
+  "processingRequest": "Processing your request...",
+  "toolError": "Tool Error",
+  "toolSuccess": "Success",
+  "showDetails": "Show Details",
+  "edit": "Edit",
+  "feedback": "Feedback",
+  "refresh": "Refresh"
+}

@@ -8,12 +8,12 @@ class AvatarApp {
       webhookClient: null,
       costTracker: null,
       uiController: null,
-      interactiveAvatar: null // Future feature
+      interactiveAvatar: null // Real-time streaming avatar
     };
     
     // Application state
     this.appState = {
-      mode: CONFIG.AVATAR_MODES.N8N, // Current mode (N8N or Interactive)
+      mode: CONFIG.AVATAR_MODES.INTERACTIVE, // Start in Interactive mode for real-time streaming
       isReady: false,
       hasError: false,
       lastError: null
@@ -115,13 +115,38 @@ class AvatarApp {
       Utils.debug('Initializing UIController...');
       this.components.uiController = new UIController();
       
-      // Initialize InteractiveAvatar (future feature)
+      // Initialize InteractiveAvatar (real-time streaming)
       Utils.debug('Initializing InteractiveAvatar...');
       try {
         this.components.interactiveAvatar = new InteractiveAvatar();
+        
+        // Set up interactive avatar event handlers
+        this.components.interactiveAvatar.onSessionStart = (sessionId) => {
+          Utils.info('Interactive Avatar session started:', sessionId);
+          this.components.uiController.updateStatus('Avatar ready - Hold to speak', 'success');
+        };
+        
+        this.components.interactiveAvatar.onSessionEnd = (reason) => {
+          Utils.info('Interactive Avatar session ended:', reason);
+          this.components.uiController.updateStatus('Click avatar to start conversation', 'info');
+        };
+        
+        this.components.interactiveAvatar.onError = (error) => {
+          Utils.error('Interactive Avatar error:', error);
+          this.handleError(error);
+        };
+        
+        this.components.interactiveAvatar.onStateChange = (state) => {
+          this.handleAvatarStateChange(state);
+        };
+        
+        // Initialize the interactive avatar
+        await this.components.interactiveAvatar.init();
+        
       } catch (error) {
-        Utils.warn('InteractiveAvatar initialization failed - feature will be disabled:', error);
+        Utils.warn('InteractiveAvatar initialization failed - falling back to N8N mode:', error);
         this.components.interactiveAvatar = null;
+        this.appState.mode = CONFIG.AVATAR_MODES.N8N;
       }
       
       Utils.info('All components initialized successfully');
@@ -488,6 +513,38 @@ class AvatarApp {
 
   getUsageStats() {
     return this.components.costTracker ? this.components.costTracker.getDetailedStats() : null;
+  }
+
+  handleAvatarStateChange(state) {
+    Utils.debug('Avatar state changed:', state);
+    
+    // Update UI based on avatar state
+    switch (state) {
+      case 'static':
+        if (this.components.uiController) {
+          this.components.uiController.updateStatus('Click avatar to start conversation', 'info');
+          this.components.uiController.setRecordingEnabled(false);
+        }
+        break;
+      case 'connecting':
+        if (this.components.uiController) {
+          this.components.uiController.updateStatus('Connecting to avatar...', 'processing');
+          this.components.uiController.setRecordingEnabled(false);
+        }
+        break;
+      case 'live':
+        if (this.components.uiController) {
+          this.components.uiController.updateStatus('Avatar ready - Hold to speak', 'success');
+          this.components.uiController.setRecordingEnabled(true);
+        }
+        break;
+      case 'talking':
+        if (this.components.uiController) {
+          this.components.uiController.updateStatus('Avatar is speaking...', 'processing');
+          this.components.uiController.setRecordingEnabled(false);
+        }
+        break;
+    }
   }
 
   // Cleanup method

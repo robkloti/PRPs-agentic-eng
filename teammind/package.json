@@ -1,0 +1,54 @@
+{
+  "name": "teammind-ai",
+  "private": true,
+  "sideEffects": false,
+  "engines": {
+    "node": ">=v18.17.1"
+  },
+  "author": {
+    "url": "https://teammindai.com",
+    "name": "TeamMind"
+  },
+  "scripts": {
+    "build": "turbo build --cache-dir=.turbo",
+    "clean": "git clean -xdf node_modules dist .next",
+    "clean:workspaces": "turbo clean",
+    "dev": "cross-env FORCE_COLOR=1 turbo run dev dev:trigger --parallel",
+    "dev:web": "turbo dev --parallel",
+    "format": "turbo format --cache-dir=.turbo --continue -- --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
+    "format:fix": "turbo format --cache-dir=.turbo --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
+    "lint": "turbo lint --cache-dir=.turbo --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache' && manypkg check",
+    "lint:fix": "turbo lint --cache-dir=.turbo --continue -- --fix --cache --cache-location 'node_modules/.cache/.eslintcache' && manypkg fix",
+    "typecheck": "turbo typecheck --cache-dir=.turbo",
+    "test": "turbo test --cache-dir=.turbo",
+    "update": "pnpm update -r",
+    "supabase:web:start": "pnpm --filter web supabase:start",
+    "supabase:web:stop": "pnpm --filter web supabase:stop",
+    "supabase:web:typegen": "pnpm --filter web supabase:typegen",
+    "supabase:web:reset": "pnpm --filter web supabase:reset",
+    "supabase:web:migrate": "pnpm --filter web supabase:migrate",
+    "stripe:listen": "pnpm --filter '@tm/stripe' start",
+    "env:generate": "turbo gen env",
+    "env:validate": "turbo gen validate-env"
+  },
+  "prettier": "@tm/prettier-config",
+  "pnpm": {
+    "overrides": {
+      "react": "19.0.0",
+      "react-dom": "19.0.0"
+    }
+  },
+  "packageManager": "pnpm@9.15.9",
+  "devDependencies": {
+    "@manypkg/cli": "^0.23.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@turbo/gen": "^2.4.4",
+    "cross-env": "^7.0.3",
+    "pnpm": "^9.15.9",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "turbo": "2.5.0",
+    "typescript": "^5.8.2",
+    "yarn": "^1.22.22"
+  }
+}

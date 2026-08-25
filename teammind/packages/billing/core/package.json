@@ -1,0 +1,42 @@
+{
+  "name": "@tm/billing",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "format": "prettier --check \"**/*.{ts,tsx}\"",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@tm/prettier-config",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components/*": "./src/components/*",
+    "./schema": "./src/schema/index.ts",
+    "./types": "./src/types/index.ts",
+    "./config": "./src/billing.config.ts"
+  },
+  "devDependencies": {
+    "@tm/eslint-config": "workspace:*",
+    "@tm/prettier-config": "workspace:*",
+    "@tm/supabase": "workspace:*",
+    "@tm/tailwind-config": "workspace:*",
+    "@tm/tsconfig": "workspace:*",
+    "@tm/ui": "workspace:*",
+    "zod": "^3.24.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@tm/eslint-config/base",
+      "@tm/eslint-config/react"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  }
+}

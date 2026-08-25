@@ -1,0 +1,9 @@
+{
+  "subject": "Ihr {{productName}}-Konto wurde gelöscht",
+  "previewText": "Ihr {{productName}}-Konto wurde gelöscht",
+  "hello": "Hallo {{displayName}},",
+  "paragraph1": "Wir bestätigen hiermit, dass wir Ihre Anfrage zur Löschung Ihres Kontos bei {{productName}} bearbeitet haben.",
+  "paragraph2": "Es tut uns leid, dass Sie gehen. Bitte beachten Sie, dass diese Aktion nicht rückgängig gemacht werden kann und wir sicherstellen, dass alle Ihre Daten aus unseren Systemen gelöscht werden.",
+  "paragraph3": "Vielen Dank für die Nutzung von {{productName}}.",
+  "paragraph4": "Ihr {{productName}}-Team"
+}

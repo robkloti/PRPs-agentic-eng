@@ -1,0 +1,17 @@
+{
+  "pageTitle": "Support",
+  "pageDescription": "Benötigen Sie Hilfe? Senden Sie uns eine Supportanfrage und unser Team wird sich schnellstmöglich bei Ihnen melden.",
+  "issueType": "Problemtyp",
+  "selectIssueType": "Wählen Sie einen Problemtyp aus",
+  "issueBilling": "Abrechnung",
+  "issueBug": "Fehlerbericht",
+  "issueFeature": "Funktionsanfrage",
+  "issueGeneral": "Allgemeine Frage",
+  "issueOther": "Sonstiges",
+  "message": "Nachricht",
+  "submitRequest": "Anfrage senden",
+  "requestSuccess": "Anfrage erfolgreich gesendet",
+  "requestSuccessDescription": "Vielen Dank für Ihre Anfrage. Unser Support-Team wird sich in Kürze mit Ihnen in Verbindung setzen.",
+  "requestError": "Fehler beim Senden der Anfrage",
+  "requestErrorDescription": "Beim Senden Ihrer Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt."
+}

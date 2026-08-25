@@ -1,0 +1,39 @@
+{
+  "name": "@tm/wordpress",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "format": "prettier --check \"**/*.{ts,tsx}\"",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "start": "docker compose up"
+  },
+  "prettier": "@tm/prettier-config",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@tm/cms": "workspace:^",
+    "@tm/eslint-config": "workspace:*",
+    "@tm/prettier-config": "workspace:*",
+    "@tm/tsconfig": "workspace:*",
+    "@tm/ui": "workspace:^",
+    "@types/node": "^22.13.10",
+    "wp-types": "^4.67.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@tm/eslint-config/base",
+      "@tm/eslint-config/react"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "@tm/lemon-squeezy",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "format": "prettier --check \"**/*.{ts,tsx}\"",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@tm/prettier-config",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components": "./src/components/index.ts"
+  },
+  "dependencies": {
+    "@lemonsqueezy/lemonsqueezy.js": "3.0.0"
+  },
+  "devDependencies": {
+    "@tm/billing": "workspace:^",
+    "@tm/eslint-config": "workspace:*",
+    "@tm/prettier-config": "workspace:*",
+    "@tm/shared": "workspace:^",
+    "@tm/supabase": "workspace:^",
+    "@tm/tailwind-config": "workspace:*",
+    "@tm/tsconfig": "workspace:*",
+    "@tm/ui": "workspace:^",
+    "@types/react": "^19.0.10",
+    "next": "15.2.2",
+    "react": "19.0.0",
+    "zod": "^3.24.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@tm/eslint-config/base",
+      "@tm/eslint-config/react"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  }
+}

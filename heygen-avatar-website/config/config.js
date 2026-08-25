@@ -17,10 +17,12 @@ const CONFIG = {
   PROCESSING_MESSAGE: 'Processing your request... (HeyGen video generation takes 1-3 minutes)',
   COST_WARNING_MESSAGE: 'Approaching daily usage limit',
   
-  // Future: Interactive Avatar API (Phase 2)
-  HEYGEN_API_KEY: 'N2FjMTlmZmJjYTIzNDhkMWJhMWUxMjAxMjViYzM3MTItMTc1NDM3MzAzOQ==', // Add your HeyGen API key here for real-time mode
-  HEYGEN_AVATAR_ID: 'Alessandra_ProfessionalLook2_public',
-  INTERACTIVE_SESSION_TIMEOUT: 300000, // 5 minutes
+  // Interactive Avatar API (Real-time Streaming)
+  HEYGEN_ACCESS_TOKEN: 'M2JiZDZhMmUwODdjNGYzNzkyNzdjMGIwYzhjODYwZjMtMTc1ODU5NTI4OA==', // Add your HeyGen access token here for real-time mode (get from HeyGen dashboard)
+  HEYGEN_AVATAR_ID: '58e445efc9d24453baeeb9d89f1bfa0b',
+  HEYGEN_KNOWLEDGE_ID: '', // Optional knowledge base ID
+  INTERACTIVE_SESSION_TIMEOUT: 120000, // 2 minutes (default HeyGen timeout)
+  STATIC_AVATAR_IMAGE: 'assets/fallback/avatar-poster.jpg',
   
   // Recording States
   RECORDING_STATES: {

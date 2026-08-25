@@ -1,0 +1,47 @@
+{
+  "name": "@tm/keystatic",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "format": "prettier --check \"**/*.{ts,tsx}\"",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@tm/prettier-config",
+  "exports": {
+    ".": "./src/index.ts",
+    "./admin": "./src/keystatic-admin.tsx",
+    "./route-handler": "./src/keystatic-route-handler.ts"
+  },
+  "dependencies": {
+    "@keystatic/core": "0.5.46",
+    "@keystatic/next": "^5.0.4",
+    "@markdoc/markdoc": "^0.5.1"
+  },
+  "devDependencies": {
+    "@tm/cms": "workspace:^",
+    "@tm/eslint-config": "workspace:*",
+    "@tm/prettier-config": "workspace:*",
+    "@tm/tsconfig": "workspace:*",
+    "@tm/ui": "workspace:^",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "react": "19.0.0",
+    "zod": "^3.24.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@tm/eslint-config/base",
+      "@tm/eslint-config/react"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  }
+}

@@ -21,6 +21,7 @@ export const AvatarApp: React.FC<AvatarAppProps> = ({ config }) => {
   
   const [message, setMessage] = useState('');
   const [connectionStatus, setConnectionStatus] = useState<'idle' | 'connecting' | 'connected' | 'error'>('idle');
+  const [isListening, setIsListening] = useState(false);
   
   // Refs
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -247,6 +248,36 @@ export const AvatarApp: React.FC<AvatarAppProps> = ({ config }) => {
     setAppState(prev => ({ ...prev, error: null }));
   };
 
+  const handleStartListening = async () => {
+    if (!avatarManagerRef.current || appState.currentProvider !== 'heygen') return;
+
+    try {
+      setIsListening(true);
+      const heygenProvider = (avatarManagerRef.current as any).currentProvider;
+      if (heygenProvider?.streamingAvatar) {
+        await heygenProvider.streamingAvatar.startListening();
+      }
+    } catch (error) {
+      console.error('Start listening failed:', error);
+      setIsListening(false);
+    }
+  };
+
+  const handleStopListening = async () => {
+    if (!avatarManagerRef.current || appState.currentProvider !== 'heygen') return;
+
+    try {
+      const heygenProvider = (avatarManagerRef.current as any).currentProvider;
+      if (heygenProvider?.streamingAvatar) {
+        await heygenProvider.streamingAvatar.stopListening();
+      }
+      setIsListening(false);
+    } catch (error) {
+      console.error('Stop listening failed:', error);
+      setIsListening(false);
+    }
+  };
+
   return (
     <div className="avatar-app">
       <header className="app-header">
@@ -311,7 +342,7 @@ export const AvatarApp: React.FC<AvatarAppProps> = ({ config }) => {
 
         <div className="controls-section">
           <div className="controls-panel">
-            {!appState.isConnected ? (
+            {!appState.isConnected && !appState.isConnecting ? (
               <div className="connection-controls">
                 <button
                   onClick={handleConnect}
@@ -328,8 +359,54 @@ export const AvatarApp: React.FC<AvatarAppProps> = ({ config }) => {
                   </div>
                 )}
               </div>
+            ) : appState.isConnecting ? (
+              <div className="connection-controls">
+                <button
+                  disabled={true}
+                  className="connect-btn primary-button"
+                >
+                  Connecting...
+                </button>
+                <button
+                  onClick={() => {
+                    // Force show controls even if connection failed
+                    setAppState(prev => ({
+                      ...prev,
+                      isConnected: true,
+                      isConnecting: false,
+                      currentProvider: prev.currentProvider || 'heygen'
+                    }));
+                    setConnectionStatus('connected');
+                  }}
+                  className="connect-btn primary-button"
+                  style={{ marginTop: '1rem', opacity: 0.8 }}
+                >
+                  Skip Connection (Demo Mode)
+                </button>
+                {appState.error && (
+                  <div className="error-message">
+                    <span>{appState.error}</span>
+                    <button onClick={clearError} className="error-close">×</button>
+                  </div>
+                )}
+              </div>
             ) : (
               <div className="message-controls">
+                {appState.currentProvider === 'heygen' && (
+                  <div className="voice-controls">
+                    <button
+                      onMouseDown={handleStartListening}
+                      onMouseUp={handleStopListening}
+                      onMouseLeave={handleStopListening}
+                      disabled={appState.isSpeaking}
+                      className={`voice-btn ${isListening ? 'listening' : ''}`}
+                      data-testid="voice-btn"
+                    >
+                      {isListening ? '🎤 Listening...' : '🎤 Hold to Talk'}
+                    </button>
+                    <div className="input-divider">or</div>
+                  </div>
+                )}
                 <div className="input-group">
                   <textarea
                     value={message}

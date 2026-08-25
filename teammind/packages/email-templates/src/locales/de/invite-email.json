@@ -1,0 +1,9 @@
+{
+  "subject": "Sie wurden eingeladen, dem Team beizutreten",
+  "heading": "Treten Sie dem Team {{teamName}} auf {{productName}} bei",
+  "hello": "Hallo {{invitedUserEmail}},",
+  "mainText": "<strong>{{inviter}}</strong> hat Sie zum Team <strong>{{teamName}}</strong> auf <strong>{{productName}}</strong> eingeladen.",
+  "joinTeam": "Team {{teamName}} beitreten",
+  "copyPasteLink": "oder kopieren Sie diese URL in Ihren Browser:",
+  "invitationIntendedFor": "Diese Einladung ist für {{invitedUserEmail}} bestimmt."
+}

@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  scrollbar-gutter: stable;
+}
+
+@layer base {
+  :root {
+    --background: 210deg 20% 97%;
+    --foreground: 224deg 71% 4%;
+
+    --muted: 210deg 30% 94%;
+    --muted-foreground: 215.4deg 16.3% 46.9%;
+
+    --popover: 0deg 0% 100%;
+    --popover-foreground: 224deg 71% 4%;
+
+    --border: 214.3deg 30% 88%;
+    --input: 210deg 30% 95%;
+
+    --card: 0deg 0% 100%;
+    --card-foreground: 224deg 71% 4%;
+
+    --primary: 222.2deg 47.4% 11.2%;
+    --primary-foreground: 210deg 40% 98%;
+
+    --secondary: 210deg 30% 94%;
+    --secondary-foreground: 222.2deg 47.4% 11.2%;
+
+    --accent: 210deg 30% 94%;
+    --accent-foreground: 222.2deg 47.4% 11.2%;
+
+    --destructive: 6deg 76% 57%;
+    --destructive-foreground: 0deg 0% 100%;
+
+    --ring: 239deg 100% 77%;
+
+    --radius: 1rem;
+    --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-card:
+      0 2px 12px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
+    --shadow-button: 0 2px 6px rgba(0, 0, 0, 0.06);
+
+    /* Brand Colors */
+    --brand-purple: 239 100% 77%; /* #8C9CFF - updated to match logo */
+    --brand-blue: 239 100% 77%; /* #8C9CFF - using the same as purple */
+    --brand-coral: 7 77% 79%; /* #F5A9A0 - updated to match logo */
+    --brand-gold: 42 60% 75%; /* #E6D3A7 - softer gold color */
+  }
+
+  .dark {
+    --background: 215 25% 8%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 25% 15%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 10%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 215 25% 6%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 215 25% 16%;
+    --input: 215 25% 18%;
+
+    --card: 215 25% 10%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 216 34% 10%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 6deg 76% 57%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 239 100% 77%;
+
+    --radius: 1rem;
+    --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.15);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.1);
+    --shadow-button: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+    /* Brand Colors - Same in dark mode but with adjusted gold */
+    --brand-purple: 239 100% 77%;
+    --brand-blue: 239 100% 77%;
+    --brand-coral: 7 77% 79%;
+    --brand-gold: 42 60% 75%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+
+  .container {
+    @apply max-sm:px-4;
+  }
+}
+
+/* Brand Component Classes */
+@layer components {
+  .btn-brand-primary {
+    @apply bg-brand-purple text-white shadow-button transition-all hover:bg-opacity-90 hover:shadow-medium;
+  }
+
+  .btn-brand-secondary {
+    @apply border border-brand-purple bg-white text-brand-purple shadow-button transition-all hover:bg-slate-50 hover:shadow-medium;
+  }
+
+  .btn-brand-accent {
+    @apply bg-brand-gold text-slate-800 shadow-button transition-all hover:bg-opacity-90 hover:shadow-medium;
+  }
+
+  .card-elevated {
+    @apply rounded-lg border border-border bg-card p-4 shadow-card transition-shadow hover:shadow-medium;
+  }
+
+  .input-styled {
+    @apply rounded-md border border-input bg-background shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring;
+  }
+
+  .highlight-text {
+    @apply font-medium text-brand-gold;
+  }
+
+  .section-heading {
+    @apply font-heading text-2xl font-bold md:text-3xl;
+  }
+}
+
+/* Base gradient styles for buttons and backgrounds */
+button.bg-brand-gradient,
+.bg-brand-gradient {
+  background-image: 
+    radial-gradient(circle at 15% 15%, #7CA1F7 0%, transparent 60%),
+    radial-gradient(circle at 85% 25%, #EFA093 0%, transparent 65%),
+    radial-gradient(circle at 75% 85%, #ECCA71 0%, transparent 60%),
+    radial-gradient(circle at 25% 75%, #898BFA 0%, transparent 65%) !important;
+  background-color: rgba(137, 139, 250, 0.1) !important;
+  -webkit-appearance: none !important;
+  color: white;
+  overflow: hidden;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Child elements text shadow */
+button.bg-brand-gradient *,
+.bg-brand-gradient * {
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* SVG icons treatment */
+button.bg-brand-gradient svg,
+.bg-brand-gradient svg {
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+/* Hover state */
+button.bg-brand-gradient:hover {
+  box-shadow: 0 0 15px 2px rgba(137, 139, 250, 0.3);
+  background-image: 
+    radial-gradient(circle at 20% 20%, #7CA1F7 0%, transparent 65%),
+    radial-gradient(circle at 80% 20%, #EFA093 0%, transparent 70%),
+    radial-gradient(circle at 70% 80%, #ECCA71 0%, transparent 65%),
+    radial-gradient(circle at 20% 70%, #898BFA 0%, transparent 70%) !important;
+}
+
+/* Active state */
+button.bg-brand-gradient:active {
+  background-image: 
+    radial-gradient(circle at 15% 15%, #6f93e8 0%, transparent 60%),
+    radial-gradient(circle at 85% 25%, #e08c7f 0%, transparent 65%),
+    radial-gradient(circle at 75% 85%, #d9bb60 0%, transparent 60%),
+    radial-gradient(circle at 25% 75%, #7a7ce6 0%, transparent 65%) !important;
+}
+
+/* Disabled state */
+button.bg-brand-gradient:disabled {
+  opacity: 0.4;
+}
+
+/*
+Optimize dropdowns for mobile
+ */
+[data-radix-popper-content-wrapper] {
+  @apply w-full md:w-auto;
+}
+
+[data-radix-menu-content] {
+  @apply rounded-lg shadow-medium;
+}
+
+[data-radix-menu-content] [role='menuitem'] {
+  @apply min-h-12 md:min-h-0;
+}
+
+[role='tab'][data-state='active'] {
+  @apply border;
+}
+
+/* Assistant ui */
+/* Add this to your global CSS file */
+[data-radix-scroll-area-viewport].thread-viewport {
+  display: block !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow: auto !important;
+}
+
+/* Shadcn component overrides */
+.shadcn-button {
+  @apply rounded-md shadow-button transition-all hover:shadow-medium;
+}
+
+.shadcn-card {
+  @apply rounded-lg shadow-card transition-shadow hover:shadow-medium;
+}
+
+.shadcn-input,
+.shadcn-select,
+.shadcn-textarea {
+  @apply rounded-md;
+}
+
+/* Gradient Animation for Marketing pages */
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.animated-gradient-background {
+  background: linear-gradient(
+    -45deg,
+    hsl(var(--brand-purple)),
+    hsl(var(--brand-blue)),
+    hsl(var(--brand-coral)),
+    hsl(var(--brand-gold))
+  );
+  background-size: 300% 300%;
+  animation: gradient-animation 10s ease infinite;
+}
+
+.animated-gradient-border {
+  position: relative;
+}
+
+.animated-gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    -45deg,
+    hsl(var(--brand-purple)),
+    hsl(var(--brand-blue)),
+    hsl(var(--brand-coral)),
+    hsl(var(--brand-gold))
+  );
+  background-size: 300% 300%;
+  animation: gradient-animation 10s ease infinite;
+  border-radius: calc(var(--radius) + 2px);
+  z-index: -1;
+}
+
+.animate-gradient-x {
+  animation: gradient-x 10s ease infinite;
+}
+
+/* Hide the cast button on video players */
+/* Hide cast button across browsers */
+video::-webkit-media-controls-cast-button {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+video::-webkit-media-controls-overflow-button {
+  display: none !important;
+}
+
+video::-internal-media-controls-cast-button {
+  display: none !important;
+}
+
+/* Target potential parent containers */
+::-webkit-media-controls-panel [aria-label*='cast'],
+::-webkit-media-controls-panel button[title*='cast'] {
+  display: none !important;
+}
+
+/* shadcn Scroll Area in Thread Viewport */
+.thread-viewport > [data-radix-scroll-area-content] {
+  @apply flex flex-col items-center self-stretch bg-inherit;
+}

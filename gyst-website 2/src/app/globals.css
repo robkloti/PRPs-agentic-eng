@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* GYST Brand Colors - Yellow/Gold from logo */
+    --background: 240 21% 15%; /* base dark */
+    --foreground: 226 64% 88%; /* text */
+    --card: 240 23% 18%; /* surface0 */
+    --card-foreground: 226 64% 88%;
+    --popover: 240 23% 18%;
+    --popover-foreground: 226 64% 88%;
+    --primary: 60 100% 50%; /* bright yellow from logo */
+    --primary-foreground: 240 21% 15%;
+    --secondary: 48 100% 67%; /* softer gold */
+    --secondary-foreground: 240 21% 15%;
+    --muted: 240 19% 26%; /* surface1 */
+    --muted-foreground: 228 39% 66%; /* overlay1 */
+    --accent: 60 100% 50%; /* yellow accent */
+    --accent-foreground: 240 21% 15%;
+    --destructive: 343 81% 75%; /* red */
+    --destructive-foreground: 226 64% 88%;
+    --border: 240 16% 34%; /* surface2 */
+    --input: 240 16% 34%;
+    --ring: 60 100% 50%;
+    --radius: 0.75rem;
+
+    /* Extended palette */
+    --lavender: 267 84% 81%;
+    --sapphire: 199 76% 69%;
+    --sky: 189 71% 73%;
+    --teal: 170 57% 73%;
+    --green: 115 54% 76%;
+    --yellow: 60 100% 50%; /* logo yellow */
+    --gold: 48 100% 67%;
+    --peach: 23 92% 75%;
+    --maroon: 350 65% 75%;
+    --pink: 316 72% 86%;
+    --flamingo: 0 59% 88%;
+    --rosewater: 10 56% 91%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Lenis smooth scroll overrides */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-background/30 border border-border/50;
+  }
+
+  .glow {
+    @apply shadow-lg shadow-primary/20;
+  }
+}

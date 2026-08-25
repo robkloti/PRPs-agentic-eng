@@ -1,0 +1,3 @@
+import { keystaticRouteHandlers } from '@tm/keystatic/route-handler';
+
+export const { POST, GET } = keystaticRouteHandlers;

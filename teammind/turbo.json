@@ -1,0 +1,107 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "ui": "stream",
+  "globalDependencies": ["**/.env"],
+  "globalEnv": [
+    "STRIPE_SECRET_KEY",
+    "STRIPE_WEBHOOK_SECRET",
+    "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
+    "NEXT_PUBLIC_PRODUCT_NAME",
+    "NEXT_PUBLIC_SITE_URL",
+    "NEXT_PUBLIC_MONITORING_PROVIDER",
+    "EMAIL_SENDER",
+    "EMAIL_PORT",
+    "EMAIL_HOST",
+    "EMAIL_TLS",
+    "EMAIL_USER",
+    "EMAIL_PASSWORD",
+    "CMS_CLIENT",
+    "LOGGER",
+    "LEMON_SQUEEZY_SECRET_KEY",
+    "LEMON_SQUEEZY_SIGNING_SECRET",
+    "LEMON_SQUEEZY_STORE_ID",
+    "KEYSTATIC_STORAGE_KIND",
+    "KEYSTATIC_STORAGE_PROJECT",
+    "KEYSTATIC_STORAGE_REPO",
+    "KEYSTATIC_STORAGE_BRANCH_PREFIX",
+    "KEYSTATIC_PATH_PREFIX",
+    "KEYSTATIC_GITHUB_TOKEN",
+    "NEXT_PUBLIC_KEYSTATIC_CONTENT_PATH",
+    "WORDPRESS_API_URL",
+    "SUPABASE_DB_WEBHOOK_SECRET",
+    "INSTRUMENTATION_SERVICE_NAME",
+    "NEXT_PUBLIC_SENTRY_DSN",
+    "CAPTCHA_SECRET_TOKEN",
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "GOOGLE_GENERATIVE_AI_API_KEY",
+    "TRIGGER_SECRET_KEY",
+    "ATLASSIAN_CLIENT_ID",
+    "ATLASSIAN_CLIENT_SECRET",
+    "JINA_API_KEY",
+    "MEETING_API_URL",
+    "MEETING_API_KEY",
+    "RESEND_API_KEY",
+    "SENTRY_DSN",
+    "SENTRY_AUTH_TOKEN",
+    "CONTACT_EMAIL",
+    "MAILER_PROVIDER",
+    "EMAIL_WORKER_API_KEY",
+    "MICROSOFT_CLIENT_ID",
+    "MICROSOFT_CLIENT_SECRET",
+    "NOTION_CLIENT_ID",
+    "NOTION_CLIENT_SECRET",
+    "NOTION_WEBHOOK_VERIFICATION_TOKEN",
+    "GOTENBERG_URL",
+    "GOTENBERG_USERNAME",
+    "GOTENBERG_PASSWORD",
+    "POSTHOG_API_KEY",
+    "POSTHOG_HOST",
+    "MAPBOX_ACCESS_TOKEN",
+    "OPENWEATHER_API_KEY",
+    "SMITHERY_API_KEY",
+    "TMDB_API_KEY",
+    "EXA_API_KEY",
+    "TAVILY_API_KEY"
+  ],
+  "globalPassThroughEnv": ["COREPACK_HOME"],
+  "tasks": {
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "next-env.d.ts"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "dev:trigger": {
+      "persistent": true,
+      "cache": false
+    },
+    "format": {
+      "outputs": ["node_modules/.cache/.prettiercache"],
+      "outputLogs": "new-only"
+    },
+    "lint": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
+    "typecheck": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+    },
+    "test": {
+      "dependsOn": ["^topo"]
+    },
+    "clean": {
+      "cache": false
+    },
+    "//#clean": {
+      "cache": false
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@tm/tailwind-config",
+  "version": "0.1.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "files": [
+    "index.ts",
+    "postcss.js"
+  ],
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "format": "prettier --check \"**/*.{js,ts,json}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "0.5.16",
+    "autoprefixer": "^10.4.21",
+    "next": "15.2.2",
+    "postcss": "8.5.3",
+    "tailwindcss": "3.4.4",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@tm/eslint-config": "workspace:^",
+    "@tm/prettier-config": "workspace:^",
+    "@tm/tsconfig": "workspace:^",
+    "eslint": "^8.57.1",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@tm/eslint-config/base"
+    ]
+  },
+  "prettier": "@tm/prettier-config"
+}

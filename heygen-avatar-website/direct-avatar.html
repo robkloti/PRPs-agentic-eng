@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My HeyGen Avatar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            color: white;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .avatar-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .avatar-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 12px;
+            background: white;
+        }
+
+        .direct-link {
+            margin-top: 1rem;
+        }
+
+        .direct-link a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .direct-link a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+            .avatar-iframe {
+                height: 400px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My HeyGen Interactive Avatar</h1>
+        <p>Chat with my custom avatar using voice or text</p>
+
+        <div class="avatar-container">
+            <iframe
+                src="https://labs.heygen.com/interactive-avatar/share?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiI1OGU0NDVlZmM5ZDI0NDUzYmFlZWI5ZDg5%0D%0AZjFiZmEwYiIsInByZXZpZXdJbWciOiJodHRwczovL2ZpbGVzMi5oZXlnZW4uYWkvYXZhdGFyL3Yz%0D%0ALzU4ZTQ0NWVmYzlkMjQ0NTNiYWVlYjlkODlmMWJmYTBiL2Z1bGwvMi4yL3ByZXZpZXdfdGFyZ2V0%0D%0ALndlYnAiLCJuZWVkUmVtb3ZlQmFja2dyb3VuZCI6ZmFsc2UsImtub3dsZWRnZUJhc2VJZCI6IjAx%0D%0AYWVjNjhlZGM1YTQzYjViNTg2YTIyZDJmZmEyYjQ3Iiwic2hhcmVfY29kZSI6IjQ1ODI1ZDZiLTk5%0D%0AOWItNGIxOC05YmZjLWNmMWFmNmNhMzQ0ZiIsInVzZXJuYW1lIjoiN2FjMTlmZmJjYTIzNDhkMWJh%0D%0AMWUxMjAxMjViYzM3MTIifQ%3D%3D"
+                class="avatar-iframe"
+                allow="microphone; camera"
+                title="HeyGen Interactive Avatar">
+            </iframe>
+        </div>
+
+        <div class="direct-link">
+            <a href="https://labs.heygen.com/interactive-avatar/share?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiI1OGU0NDVlZmM5ZDI0NDUzYmFlZWI5ZDg5%0D%0AZjFiZmEwYiIsInByZXZpZXdJbWciOiJodHRwczovL2ZpbGVzMi5oZXlnZW4uYWkvYXZhdGFyL3Yz%0D%0ALzU4ZTQ0NWVmYzlkMjQ0NTNiYWVlYjlkODlmMWJmYTBiL2Z1bGwvMi4yL3ByZXZpZXdfdGFyZ2V0%0D%0ALndlYnAiLCJuZWVkUmVtb3ZlQmFja2dyb3VuZCI6ZmFsc2UsImtub3dsZWRnZUJhc2VJZCI6IjAx%0D%0AYWVjNjhlZGM1YTQzYjViNTg2YTIyZDJmZmEyYjQ3Iiwic2hhcmVfY29kZSI6IjQ1ODI1ZDZiLTk5%0D%0AOWItNGIxOC05YmZjLWNmMWFmNmNhMzQ0ZiIsInVzZXJuYW1lIjoiN2FjMTlmZmJjYTIzNDhkMWJh%0D%0AMWUxMjAxMjViYzM3MTIifQ%3D%3D" target="_blank">
+                Open Avatar in Full Screen
+            </a>
+        </div>
+
+        <div class="instructions">
+            <h3>How to use your avatar:</h3>
+            <p>• Click the microphone icon to speak directly to your avatar<br>
+            • Use the text input to type messages<br>
+            • Your custom avatar will respond with your voice and knowledge base<br>
+            • For best experience, click "Open Avatar in Full Screen"</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+{
+  "pageTitle": "Chat",
+  "promptSuggestions": {
+    "explain": {
+      "title": "Erklären",
+      "text": "Erkläre mir, wie man..."
+    },
+    "summarize": {
+      "title": "Zusammenfassen",
+      "text": "Fasse dieses Dokument zusammen..."
+    },
+    "compare": {
+      "title": "Vergleichen",
+      "text": "Vergleiche diese zwei Konzepte..."
+    },
+    "find": {
+      "title": "Finden",
+      "text": "Finde Informationen über..."
+    },
+    "analyze": {
+      "title": "Analysieren",
+      "text": "Analysiere die folgenden Daten..."
+    },
+    "create": {
+      "title": "Erstellen",
+      "text": "Erstelle einen Plan für..."
+    },
+    "translate": {
+      "title": "Übersetzen",
+      "text": "Übersetze diesen Text nach..."
+    },
+    "brainstorm": {
+      "title": "Brainstorming",
+      "text": "Sammle Ideen für..."
+    }
+  },
+  "sources": {
+    "all": "Alle Quellen",
+    "selected": "Quellen",
+    "selectSources": "Quellen auswählen",
+    "addMore": "Weitere Quellen hinzufügen",
+    "addSources": "Quellen hinzufügen",
+    "references": "Referenzen",
+    "allReferences": "Alle Referenzen",
+    "allReferencesDescription": "In dieser Antwort verwendete Referenzen"
+  },
+  "connectors": {
+    "count": "{{count}} Konnektor",
+    "count_plural": "{{count}} Konnektoren",
+    "none": "Keine Konnektoren",
+    "connectPrompt": "Möchten Sie jetzt eine Datenquelle verbinden?",
+    "inputDisabled": "Verbinden Sie eine Datenquelle, um mit dem Chatten zu beginnen"
+  },
+  "greetings": {
+    "morning": "Guten Morgen, {{username}}",
+    "afternoon": "Guten Tag, {{username}}",
+    "evening": "Guten Abend, {{username}}",
+    "night": "Hallo {{username}}, sind Sie noch so spät aktiv?",
+    "placeholder": "Fragen Sie TeamMind..."
+  },
+  "recentChats": "Letzte Chats",
+  "favoriteChats": "Favoriten Chats",
+  "recent": "Letzte",
+  "favorites": "Favoriten",
+  "viewAll": "Alle anzeigen",
+  "noFavoritesYet": "Noch keine Lieblingskonversationen",
+  "history": {
+    "pageTitle": "Chat-Verlauf",
+    "title": "Chat-Verlauf",
+    "favoriteTitle": "Favoriten-Chats",
+    "description": "Anzeigen und Verwalten Sie Ihre vorherigen Konversationen",
+    "favoriteDescription": "Anzeigen und Verwalten Sie Ihre Lieblingskonversationen",
+    "search": "Konversationen durchsuchen...",
+    "showFavorites": "Nur Favoriten anzeigen",
+    "previousChats": "{{count}} vorherige Chats",
+    "previousChatsWithSearch": "{{count}} Ergebnisse für '{{query}}'",
+    "favoritesCount": "{{count}} Lieblings-Chats",
+    "select": "Auswählen",
+    "selected": "ausgewählt",
+    "cancel": "Abbrechen",
+    "selectAll": "Alle auswählen",
+    "deleteSelected": "Ausgewählte löschen",
+    "newConversation": "Neue Konversation",
+    "noConversations": "Sie haben noch keine Konversationen",
+    "noFavorites": "Sie haben noch keine Lieblingskonversationen",
+    "noSearchResults": "Keine Ergebnisse für '{{query}}' gefunden"
+  },
+  "sessionTooLong": "Diese THINK Session ist zu lang.",
+  "startNewChat": "Neuen starten",
+  "chatMessageLimitReached": "Chat-Nachrichtenlimit erreicht: Sie haben {{currentUsage}} / {{limit}} Zeichen in den letzten 5 Stunden verwendet. Bitte warten Sie oder aktualisieren Sie Ihren Plan, um das Limit zu erhöhen.",
+  "searching": "Suche...",
+  "expandedSearchQuery": "Erweiterte Suchanfrage:",
+  "thinking": "Denken...",
+  "searchingInSources": "Suche in {{count}} Quellen",
+  "noRelevantSourcesFound": "Keine relevanten Quellen gefunden.",
+  "search": {
+    "lookingFor": "Ich suche nach"
+  },
+  "scrollToBottom": "Zum Ende scrollen",
+  "howCanIHelpYouToday": "Wie kann ich Ihnen heute helfen?",
+  "whatIsTheWeatherInTokyo": "Wie ist das Wetter in Tokio?",
+  "whatIsAssistantUi": "Was ist assistant-ui?",
+  "typeYourMessage": "Geben Sie Ihre Frage ein...",
+  "send": "Senden",
+  "loadingConversations": "Chat-Konversationen werden geladen...",
+  "noConversationsYet": "Sie haben noch keine Chats begonnen.",
+  "addToBookmarks": "Zu Lesezeichen hinzufügen",
+  "removeFromBookmarks": "Aus Lesezeichen entfernen",
+  "addedToBookmarks": "Zu Lesezeichen hinzugefügt",
+  "removedFromBookmarks": "Aus Lesezeichen entfernt",
+  "errorTogglingBookmark": "Fehler beim Umschalten des Lesezeichenstatus",
+  "aiErrorNotice": "TeamMind kann Fehler machen. Bitte überprüfen Sie die Antworten.",
+  "usingTool": "Werkzeug wird verwendet...",
+  "processingRequest": "Ihre Anfrage wird bearbeitet...",
+  "toolError": "Werkzeugfehler",
+  "toolSuccess": "Erfolgreich",
+  "showDetails": "Details anzeigen",
+  "edit": "Bearbeiten",
+  "feedback": "Feedback",
+  "refresh": "Wiederholen"
+}

@@ -1,4 +1,4 @@
-import { StreamingAvatar, AvatarQuality, VoiceEmotion } from '@heygen/streaming-avatar';
+import StreamingAvatar, { AvatarQuality, VoiceEmotion, TaskType, TaskMode } from '@heygen/streaming-avatar';
 import type { 
   AvatarProvider, 
   HeyGenConfig, 
@@ -29,10 +29,14 @@ export class HeyGenProvider implements AvatarProvider {
   async connect(config: HeyGenConfig): Promise<ConnectionResult> {
     try {
       this.updateState('connecting');
-      
+
       this.streamingAvatar = new StreamingAvatar({ token: config.token });
-      
-      await this.streamingAvatar.createStartAvatar({
+
+      // Setup event handlers before starting avatar
+      this.setupEventHandlers();
+
+      // Create and start the avatar session
+      const sessionInfo = await this.streamingAvatar.createStartAvatar({
         avatarName: config.avatarId,
         quality: this.mapQualityLevel(config.quality),
         voice: {
@@ -43,12 +47,19 @@ export class HeyGenProvider implements AvatarProvider {
         language: 'en'
       });
 
-      this.setupEventHandlers();
+      // Start the session to get video stream
+      await this.streamingAvatar.startSession();
+
+      // Enable voice chat for microphone input
+      await this.streamingAvatar.startVoiceChat({
+        isInputAudioMuted: false
+      });
+
       this.updateState('connected');
-      
+
       const connectionId = crypto.randomUUID();
       this.emit('connected', { provider: this.name, connectionId });
-      
+
       return { success: true, connectionId };
     } catch (error) {
       this.updateState('error');
@@ -68,8 +79,8 @@ export class HeyGenProvider implements AvatarProvider {
       
       await this.streamingAvatar.speak({
         text: message,
-        task_type: 'talk',
-        task_mode: 'sync'
+        task_type: TaskType.TALK,
+        taskMode: TaskMode.SYNC
       });
 
       const responseTime = performance.now() - startTime;
@@ -127,9 +138,16 @@ export class HeyGenProvider implements AvatarProvider {
   private setupEventHandlers(): void {
     if (!this.streamingAvatar) return;
 
-    // Handle stream ready event
+    // Handle stream ready event - HeyGen provides MediaStream
     this.streamingAvatar.on('stream_ready', (event: any) => {
-      this.emit('streamReady', { stream: event.detail });
+      console.log('HeyGen stream ready event:', event);
+      // The stream is available on the streamingAvatar.mediaStream property
+      if (this.streamingAvatar?.mediaStream) {
+        this.emit('streamReady', {
+          stream: this.streamingAvatar.mediaStream,
+          provider: this.name
+        });
+      }
     });
 
     // Handle avatar speaking events
